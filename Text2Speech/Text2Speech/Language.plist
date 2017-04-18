@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>0</key>
+	<dict>
+		<key>content</key>
+		<string>3  2  1</string>
+		<key>local</key>
+		<string>zh-CN</string>
+		<key>name</key>
+		<string>中文</string>
+	</dict>
+	<key>1</key>
+	<dict>
+		<key>content</key>
+		<string>3  2  1</string>
+		<key>local</key>
+		<string>en-US</string>
+		<key>name</key>
+		<string>英语 (American)</string>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>content</key>
+		<string>3  2  1</string>
+		<key>local</key>
+		<string>fr-FR</string>
+		<key>name</key>
+		<string>法语</string>
+	</dict>
+	<key>3</key>
+	<dict>
+		<key>content</key>
+		<string>3  2  1</string>
+		<key>local</key>
+		<string>de-DE</string>
+		<key>name</key>
+		<string>德语</string>
+	</dict>
+	<key>4</key>
+	<dict>
+		<key>content</key>
+		<string>3  2  1</string>
+		<key>local</key>
+		<string>it-IT</string>
+		<key>name</key>
+		<string>意大利</string>
+	</dict>
+	<key>5</key>
+	<dict>
+		<key>content</key>
+		<string>3  2  1</string>
+		<key>local</key>
+		<string>ja-JP</string>
+		<key>name</key>
+		<string>日语</string>
+	</dict>
+	<key>6</key>
+	<dict>
+		<key>content</key>
+		<string>3  2  1</string>
+		<key>local</key>
+		<string>pt-PT</string>
+		<key>name</key>
+		<string>葡萄牙</string>
+	</dict>
+	<key>7</key>
+	<dict>
+		<key>content</key>
+		<string>3  2  1</string>
+		<key>local</key>
+		<string>ru-RU</string>
+		<key>name</key>
+		<string>俄语</string>
+	</dict>
+	<key>8</key>
+	<dict>
+		<key>content</key>
+		<string>3  2  1</string>
+		<key>local</key>
+		<string>es-ES</string>
+		<key>name</key>
+		<string>西班牙语</string>
+	</dict>
+	<key>9</key>
+	<dict>
+		<key>content</key>
+		<string>3  2  1</string>
+		<key>local</key>
+		<string>th-TH</string>
+		<key>name</key>
+		<string>泰国</string>
+	</dict>
+</dict>
+</plist>
