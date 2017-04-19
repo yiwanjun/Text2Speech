@@ -48,16 +48,23 @@ extension TTSpeechManager{
 }
 
 extension TTSpeechManager{
-    public class func SpeakWithUttrance( uttrance: AVSpeechUtterance, progress: @escaping (String) -> Void,finish: @escaping (Bool) -> Void) {
-        if let syn = shareManager.synThesizer {
-            syn.speak(uttrance)
-        }else{
-            let syn = AVSpeechSynthesizer()
-            shareManager.synThesizer = syn
-            shareManager.finish = finish
-            shareManager.progress = progress
-            syn.delegate = shareManager
-            syn.speak(uttrance)
+    
+    public class func SpeakWithUttrance(uttrance: AVSpeechUtterance,progress: @escaping (String) -> Void,finish:@escaping (Bool) -> Void){
+        SpeakWithUttrance(uttrance: uttrance, timeInteger: 0, progress: progress, finish: finish)
+    }
+
+    public class func SpeakWithUttrance( uttrance: AVSpeechUtterance, timeInteger: TimeInterval,progress: @escaping (String) -> Void,finish: @escaping (Bool) -> Void) {
+        DispatchQueue.global(qos: .default).asyncAfter(deadline: DispatchTime.now() + timeInteger ) {
+            if let syn = shareManager.synThesizer {
+                syn.speak(uttrance)
+            }else{
+                let syn = AVSpeechSynthesizer()
+                shareManager.synThesizer = syn
+                shareManager.finish = finish
+                shareManager.progress = progress
+                syn.delegate = shareManager
+                syn.speak(uttrance)
+            }
         }
     }
 }
@@ -65,10 +72,10 @@ extension TTSpeechManager{
 extension TTSpeechManager : AVSpeechSynthesizerDelegate{
 
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
-        print("speech begain")
+        print("speech begain",utterance.speechString)
+        
     }
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        print("speech end")
         finish?(true)
     }
     

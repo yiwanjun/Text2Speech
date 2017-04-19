@@ -25,6 +25,10 @@ class ViewController: UITableViewController {
             "name":"混合",
             "identifier": "MixAudioAndSpeechViewController"
         ],
+        [
+            "name":"顺序控制",
+            "identifier":"SpeechFlowViewController"
+        ]
     
     ]
 
