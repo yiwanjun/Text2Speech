@@ -15,13 +15,22 @@ class NBAudioBot: NSObject {
     
     override init() {
         super.init()
+        
     }
     
     fileprivate var audioPlayer : AVAudioPlayer?
+    
+  
+
 }
 
 extension NBAudioBot{
+
     public class func PlayerWithURL(_ fileURL: URL ,finish: @escaping(Bool) -> Void) throws {
+        
+        NotificationCenter.default.addObserver(shareBot, selector: #selector(notificationBegain), name: Notification.Name(rawValue:TTSpeechManager.speechStatus.begain), object: nil)
+        NotificationCenter.default.addObserver(shareBot, selector: #selector(notificationEnd), name: Notification.Name(rawValue:TTSpeechManager.speechStatus.end), object: nil)
+        
         let seesion = AVAudioSession.sharedInstance()
         do {
             try seesion.setCategory(AVAudioSessionCategoryPlayback)
@@ -37,20 +46,43 @@ extension NBAudioBot{
             do {
                 let player = try AVAudioPlayer(contentsOf: fileURL)
                 shareBot.audioPlayer = player
+                player.numberOfLoops = 9999
                 player.delegate = shareBot
                 player.prepareToPlay()
                 player.play()
+                
             } catch  {
                 throw error
             }
         }
     }
+    public class func contiuePlay(){
+        if (shareBot.audioPlayer?.prepareToPlay())!{
+            shareBot.audioPlayer?.play()
+        }
+    }
     public class func pasuePlay(){
-       shareBot.audioPlayer?.pause()
+        if (shareBot.audioPlayer?.isPlaying)!{
+            shareBot.audioPlayer?.pause()
+        }
     }
     
     public class func stopPlay(){
         shareBot.audioPlayer?.stop()
+    }
+}
+
+extension NBAudioBot{
+    @objc func notificationPause(){
+        
+    }
+    @objc func notificationBegain(){
+        print("notificationBegain")
+        NBAudioBot.pasuePlay()
+    }
+    @objc func notificationEnd(){
+        print("notificationEnd")
+        NBAudioBot.contiuePlay()
     }
 }
 

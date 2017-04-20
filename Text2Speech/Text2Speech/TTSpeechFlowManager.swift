@@ -19,7 +19,7 @@ class TTSpeechFlowManager: NSObject {
 }
 
 extension TTSpeechFlowManager{
-    public func loadConfigFileAndinitItems(path : String){
+    public func loadConfigFileAndInitItems(path : String){
         let dicT: NSDictionary! = NSDictionary(contentsOfFile: path)
         for i in 0..<dicT.count{
             let dicM = dicT["t\(i)"] as![AnyHashable : Any]
@@ -51,7 +51,9 @@ extension TTSpeechFlowManager{
         return item
     }
     public func begain(){
-        
+        if TTSpeechManager.isSpeaking(){
+            return
+        }
         speakWithUttrance(item: loadFirstItem())
     }
     public func stop(){
@@ -63,12 +65,12 @@ extension TTSpeechFlowManager{
         
         TTSpeechManager.SpeakWithUttrance(uttrance: item.utt,timeInteger: item.delay, progress: {(progress) in
 //            print(progress)
-        }, finish: { (finish)  in
-            let item = self.loadNextItem()
+        }, finish: { [weak self] finish  in
+            let item = self?.loadNextItem()
             if (item != nil){
-                self.speakWithUttrance(item: item!)
+                self?.speakWithUttrance(item: item!)
             }else{
-                
+                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: TTSpeechManager.speechStatus.begain), object: nil)
             }
         })
     }

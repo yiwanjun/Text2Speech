@@ -9,15 +9,23 @@
 import UIKit
 
 class MixAudioAndSpeechViewController: UIViewController {
-
+    
+    var flowManager = TTSpeechFlowManager()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        
+        initItems()
     }
-
+    
+    func initItems() {
+        
+        DispatchQueue.global(qos: .default).async(execute: {()-> Void in
+            let plistPath = Bundle.main.path(forResource: "Sports", ofType: "plist")
+            self.flowManager.loadConfigFileAndInitItems(path: plistPath!)
+        })
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -26,11 +34,13 @@ class MixAudioAndSpeechViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NBAudioBot.stopPlay()
+        self.flowManager.stop()
     }
     
     
     @IBAction func playMusic(_ sender: Any) {
         playerAudio()
+        self.flowManager.begain()
     }
     
     @IBAction func pauseMusic(_ sender: Any) {

@@ -8,6 +8,9 @@
 
 import UIKit
 import AVFoundation
+import Foundation
+import Dispatch
+
 
 final public class TTSpeechManager: NSObject {
     
@@ -17,6 +20,7 @@ final public class TTSpeechManager: NSObject {
         super.init()
     }
     
+    fileprivate var currentWork : DispatchWorkItem?
     fileprivate var synThesizer : AVSpeechSynthesizer?
     fileprivate var voice : AVSpeechSynthesisVoice?
     fileprivate var uttrance : AVSpeechUtterance?
@@ -25,6 +29,14 @@ final public class TTSpeechManager: NSObject {
     fileprivate var finish: ((Bool) -> Void)?
     //获取播放进度
     fileprivate var progress : ((String) -> Void)?
+    
+    struct speechStatus {
+        static let begain  = "kSynTheBegain"
+        static let pause   = "kSynThePause"
+        static let contiue = "KSynTheContiue"
+        static let end     = "kSynTheEnd"
+        static let exit    = "kSynTheExit"
+    }
 }
 
 extension TTSpeechManager{
@@ -36,14 +48,23 @@ extension TTSpeechManager{
     
     open class func contiue(){
         if ((shareManager.synThesizer) != nil  && (shareManager.synThesizer?.isPaused)!) {
-             shareManager.synThesizer?.continueSpeaking()
+            shareManager.synThesizer?.continueSpeaking()
         }
     }
     
     open class func stop(){
-        if ((shareManager.synThesizer) != nil  && (shareManager.synThesizer?.isSpeaking)!) {
-            shareManager.synThesizer?.stopSpeaking(at: AVSpeechBoundary.word)
+        if ((shareManager.synThesizer) != nil ){
+            shareManager.synThesizer?.stopSpeaking(at: AVSpeechBoundary.immediate)
         }
+        if (shareManager.currentWork != nil) {
+            shareManager.currentWork?.cancel()
+        }
+        
+    }
+    
+    open class func isSpeaking() -> Bool{
+        
+        return (shareManager.synThesizer != nil) && (shareManager.synThesizer?.isSpeaking)!
     }
 }
 
@@ -52,11 +73,13 @@ extension TTSpeechManager{
     public class func SpeakWithUttrance(uttrance: AVSpeechUtterance,progress: @escaping (String) -> Void,finish:@escaping (Bool) -> Void){
         SpeakWithUttrance(uttrance: uttrance, timeInteger: 0, progress: progress, finish: finish)
     }
-
+    
     public class func SpeakWithUttrance( uttrance: AVSpeechUtterance, timeInteger: TimeInterval,progress: @escaping (String) -> Void,finish: @escaping (Bool) -> Void) {
-        DispatchQueue.global(qos: .default).asyncAfter(deadline: DispatchTime.now() + timeInteger ) {
+        
+        let work = DispatchWorkItem {
             if let syn = shareManager.synThesizer {
                 syn.speak(uttrance)
+                shareManager.finish = finish
             }else{
                 let syn = AVSpeechSynthesizer()
                 shareManager.synThesizer = syn
@@ -66,17 +89,23 @@ extension TTSpeechManager{
                 syn.speak(uttrance)
             }
         }
+        shareManager.currentWork = work
+        DispatchQueue.global(qos: .default).asyncAfter(deadline: DispatchTime.now()+timeInteger, execute: work)
     }
 }
 
 extension TTSpeechManager : AVSpeechSynthesizerDelegate{
-
+    
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         print("speech begain",utterance.speechString)
-        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: speechStatus.begain), object: nil)
+    }
+    public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: speechStatus.pause), object: nil)
     }
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         finish?(true)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: speechStatus.end), object: nil)
     }
     
     //获取当前utterance的阅读进度
