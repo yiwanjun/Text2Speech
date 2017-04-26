@@ -1,0 +1,144 @@
+<string-array name="td_action_name">
+        <item>ABDOMINAL CRUNCHES</item>
+        <item>LEG RAISES</item>
+        <item>SIT-UPS</item>
+        <item>PLANK</item>
+        <item>REVERSE CRUNCHES</item>
+        <item>SIDE PLANK</item>
+        <item>LONG ARM CRUNCHES</item>
+        <item>RUSSIAN TWIST</item>
+        <item>BICYCLE CRUNCHES</item>
+        <item>COBRAS</item>
+        <item>BIRD DOG</item>
+        <item>BRIDGE</item>
+        <item>MOUNTAIN CLIMBER</item>
+        <item>CROSS ARM CRUNCHES</item>
+        <item>ONE LEG BRIDGE</item>
+        <item>JUMPING JACKS</item>
+        <item>STRAIGHT-ARM PLANK</item>
+        <item>WALL PUSH-UPS</item>
+        <item>TRICEPS DIPS</item>
+        <item>STEP-UP ONTO CHAIR</item>
+        <item>PUSH-UPS</item>
+        <item>SQUATS</item>
+        <item>SIDE LUNGES</item>
+        <item>PUSH-UP &#038; ROTATION</item>
+        <item>ALTERNATING LUNGES</item>
+        <item>WIDE ARM PUSH-UPS</item>
+        <item>BURPEES</item>
+        <item>CURTSY LUNGES</item>
+        <item>INCLINE PUSH-UPS</item>
+        <item>SIDE PLANK RIGHT</item>
+        <item>DIAMOND PUSH-UPS</item>
+        <item>SPLIT SQUAT RIGHT</item>
+        <item>SPLIT SQUAT LEFT</item>
+        <item>HIGH STEPPING</item>
+        <item>KNEE PUSH-UPS</item>
+        <item>SIDE PLANK LEFT</item>
+        <item>WALL SIT</item>
+        <item>LEFT LUNGE KNEE HOPS</item>
+        <item>RIGHT LUNGE KNEE HOPS </item>
+        <item>DECLINE PUSH-UPS</item>
+        <item>JUMPING SQUATS</item>
+        <item>ONE LEG PUSH-UPS</item>
+        <item>STAGGERED PUSH-UPS</item>
+        <item>BACKWARD LUNGE WITH FRONT KICK RIGHT</item>
+        <item>BACKWARD LUNGE WITH FRONT KICK LEFT</item>
+        <item>SPIDERMAN PUSH-UPS</item>
+        <item>HINDU PUSH-UPS</item>
+        <item>DONKEY KICKS RIGHT</item>
+        <item>BUTT BRIDGE</item>
+        <item>DONKEY KICKS LEFT</item>
+        <item>FIRE HYDRANT RIGHT</item>
+        <item>FIRE HYDRANT LEFT</item>
+        <item>FROGGY GLUTE LIFTS</item>
+        <item>REVERSE FLUTTER KICKS</item>
+        <item>STANDING GLUTE KICKBACKS</item>
+        <item>PLIE SQUATS</item>
+        <item>SUMO SQUAT CALF</item>
+        <item>GLUTE KICK BACK</item>
+        <item>SIDE-LYING LEG LIFT</item>
+        <item>SUMO SQUAT &#038; LEG RAISES</item>
+        <item>HIP BRIDGE &#038; LEG LIFT</item>
+        <item>ARM CIRCLES</item>
+        <item>PUNCHES</item>
+        <item>FLOOR TRICEP DIPS</item>
+        <item>ARM RAISES</item>
+        <item>CHEST PRESS PULSE</item>
+        <item>DIAGONAL PLANK</item>
+        <item>REVERSE PUSH-UPS</item>
+        <item>PLANK TAPS</item>
+        <item>BOX PUSH-UPS</item>
+    </string-array>
+    <string-array name="td_action_introduce">
+        <item>Lie on your back with your knees bent and your arms stretched forward. \n\nThen lift your upper body off the floor. Hold for a few seconds and slowly return. \n\nIt primarily works the rectus abdominis muscle and the obliques.</item>
+        <item>Lie down on your back, and put your hands beneath your hips for support. \n\nThen lift your legs up until they form a right angle with the floor. \n\nSlowly bring your legs back down and repeat the exercise.</item>
+        <item>Lie on your back with your hands behind your head. \n\nThen lift your upper body off the floor and slowly up to the sitting position. \n\nSlowly go back to the start position and repeat the exercise.</item>
+        <item>Lie on the floor with your toes and forearms on the ground. Keep your body straight and hold this position as long as you can. \n\nThis exercise strengthens the abdomen, back and shoulders.</item>
+        <item>Lie on your back with your knees up at a 90 degree angle and your hands behind your head. \n\nLift your upper body and thighs, and then stretch out. Repeat this exercise.</item>
+        <item>Lie on your side with your forearm supporting your body. Hold your body in a straight line. \n\nThis exercise targets the abdominal muscles and obliques.</item>
+        <item>Lie on your back with knees bent and feet flat on the floor. Put your arms straight over the top of your head. \n\nLift your upper body off the floor, then slowly go back to the start position. The exercise increases abdominal endurance.</item>
+        <item>Sit on the floor with your knees bent, feet flat on the floor and back tilted backwards. \n\nThen hold your hands together and twist from side to side. The exercise works on the obliques.</item>
+        <item>Lie on the floor with your hands behind your ears. Raise your knees and close your right elbow toward your left knee, then close your left elbow toward your right knee. Repeat the exercise.</item>
+        <item>Lie down on your stomach and bend your elbows with your hands beneath your shoulders. \n\nThen push your chest up off the ground as far as possible. Return to the start position and repeat.</item>
+        <item>Start with your knees under your butt and your hands under your shoulders. \n\nThen stretch your right leg and left arm at the same time. \n\nHold for five seconds, then go back and repeat with the other side.</item>
+        <item>Lie flat on the floor, and lift your hips off the floor while keeping your back straight. \n\nHold this position as long as you can. The bridge exercise strengthens the whole abdomen, the lower back and the glutes.</item>
+        <item>Start in the push-up position. Bend your right knee towards your chest and keep your left leg straight, then quickly switch from one leg to the other. \n\nThis exercise strengthens multiple muscle groups.</item>
+        <item>Lie down and bend your knees with your feet flat on the floor. Cross your arms in front of your chest. \n\nThen lift your head and shoulders up to make a 30 degree angle with the ground. \n\nIt primarily works on the rectus abdominis muscle and obliques.</item>
+        <item>Lie on the floor, bend one leg and lift the other leg. Then lift your hips off the floor. \n\nHold the position for five seconds. This exercise works your abdomen and hips.</item>
+        <item>Start with your feet together and your arms by your sides, then jump up with your feet apart and your hands overhead. \n\nReturn to the start position then do the next rep. This exercise provides a full-body workout and works all your large muscle groups.</item>
+        <item>Start in the push-up position, but keep your arms straight. This exercise strengthens your abdomen and back muscles.</item>
+        <item>Stand in front of a wall one big step away from it. Then put your hands out straight towards the wall and lean against it. \n\nSlowly bend your elbows and press your upper body towards the wall. Push back and repeat the exercise. \n\nRemember to keep your body straight.</item>
+        <item>For the start position, sit on the chair. Then move your hip off the chair with your hands holding the edge of the chair. \n\nSlowly bend and stretch your arms to make your body go up and down. This is a great exercise for the triceps.</item>
+        <item>Stand in front of a chair. Then step up on the chair and step back down. \n\nThe exercise works to strengthen the legs and buttocks.</item>
+        <item>Lay prone on the ground with arms supporting your body. \n\nKeep your body straight while raising and lowering your body with your arms. \n\nThis exercise works the chest, shoulders, triceps, back and legs.</item>
+        <item>Stand with your feet shoulder width apart and your arms stretched forward, then lower your body until your thighs are parallel with the floor. \n\nYour knees should be extended in the same direction as your tiptoes. Return to the start position and do the next rep. \n\nThis works the thighs, hips buttocks, quads, hamstrings and lower body.</item>
+        <item>Stand straight with your feet together. Move your right leg to the side, then lower your body while keeping your left leg straight. \n\nGo back to the start position and switch to the other side. Repeat the exercise 10-15 times for a set.</item>
+        <item>Start in the push-up position. Then go down for a push-up and as you come up, rotate your upper body and extend your right arm upwards. \n\nRepeat the exercise with the other arm. It\'s a great exercise for the chest, shoulders, arms and core.</item>
+        <item>Stand with your feet shoulder width apart and your hands on your hips. \n\nTake a step forward with your right leg and lower your body until your right thigh is parallel with the floor. \n\nThen return and switch to the other leg. This exercise strengthens the quadriceps, gluteus maximus and hamstrings.</item>
+        <item>Start in the regular push-up position but with your hands spread wider than your shoulders. \n\nThen push your body up and down. Remember to keep your body straight.</item>
+        <item>Stand with your feet shoulder width apart, then put your hands on the ground and kick your feet backward. Do a quick push-up and then jump up.</item>
+        <item>Stand straight up. Then step back with your left leg to the right, and bend your knees at the same time. \n\nGo back to the start position and switch to the other side. Repeat the exercise 10-15 times for a set.</item>
+        <item>Start in the regular push-up position but with your hands elevated on a chair or bench. \n\nThen push your body up down using your arm strength. \n\nRemember to keep your body straight.</item>
+        <item>Lie on your right side with your forearm supporting your body. Hold your body in a straight line. \n\nThis exercise targets the abdominal muscles and obliques.</item>
+        <item>Start on all fours with your knees under your butt and your hands under your shoulders. \n\nMake a diamond shape with your forefingers and thumbs together directly under your face, then push your body up and down. \n\nRemember to keep your body straight.</item>
+        <item>Take a big step forward with your right leg and keep your upper body straight. \n\nThen make your body go straight down and up. Repeat 10-15 times for a set.</item>
+        <item>Take a big step forward with your left leg and keep your upper body straight. \n\nThen make your body go straight down and up. Repeat 10-15 times for a set.</item>
+        <item>Run in place while pulling your knees as high as possible with each step. \n\nKeep your upper body upright during this exercise.</item>
+        <item>Start in the regular push-up position, then let your knees touch the floor and raise your feet up off the floor. \n\nNext push your body up and down.</item>
+        <item>Lie on your left side with your forearm supporting your body. Hold your body in a straight line. \n\nThis exercise targets the abdominal muscles and obliques.</item>
+        <item>Start with your back against the wall, then slide down until your knees are at a 90 degree angle. \n\nKeep your back against the wall with your hands and arms away from your legs. Hold the position. \n\nThe exercise is to strengthen the quadriceps muscles.</item>
+        <item>Stand straight up. Then step your left leg back and lower your body. \n\nWhen you come up, raise your left knee as high as you can. \n\nGo back to the start position, and repeat the exercise 10-15 times for a set.</item>
+        <item>Stand straight up. Then step back with your right leg and lower your body. \n\nWhen you come up, raise your right knee as high as you can. \n\nGo back to the start position, and repeat the exercise 10-15 times for a set.</item>
+        <item>Start on all fours with your knees under your butt and your hands under your shoulders. \n\nThen elevate your feet on a chair or bench, and push your body up and down mainly using your arm strength. \n\nRemember to keep your body straight.</item>
+        <item>Start in the squat position, then jump up using your abdominal muscles for strength. This exercise works your abdomen.</item>
+        <item>Start in the classic push-up position but lift one leg up. \n\nThen do a few push-ups and switch to the other leg. \n\nThis works on your lower-abdominal muscles.</item>
+        <item>Start in the regular push-up position, but with one hand in front of the other. \n\nThen do a push-up and switch the other hand in front. \n\nRemember to keep your body straight.</item>
+        <item>Stand straight up. Then step back with your right leg and lower your body. When you come up, kick your right leg upward. \n\nGo back to the start position, and repeat the exercise 10-15 times for a set.</item>
+        <item>Stand straight up. Then step back with your left leg and lower your body. When you come up, kick your left leg upward. \n\nGo back to the start position, and repeat the exercise 10-15 times for a set.</item>
+        <item>Start in the regular push-up position. When lowering your torso downward, bend and lift one leg to the side. \n\nThen return to the start position and switch to the other leg. \n\nRemember to keep your body straight.</item>
+        <item>Start with your hands and feet touching the floor, body bent and butt up in an upside down \'V\' shape.\n\nThen bend your elbows to bring your body towards the floor. \n\nWhen your body is close to the floor, raise your upper body up as far as possible. Then return to the original position and repeat.</item>
+        <item>Start on all fours with your knees under butt and your hands under shoulders. \n\nThen lift your right leg and squeeze your butt as much as you can. Repeat 10-15 times for a set.</item>
+        <item>Lie on your back with knees bent and feet flat on the floor. Put your arms flat at your sides. \n\nThen lift your butt up and down. Repeat 10-15 times for a set.</item>
+        <item>Start on all fours with your knees under your butt and your hands under your shoulders. \n\nThen lift your left leg and squeeze your butt as much as you can. Go back to the start position and repeat 10-15 times for a set.</item>
+        <item>Start on all fours with your knees under your butt and your hands under your shoulders. \n\nThen lift your right leg to the side at a 90 degree angle. Repeat 10-15 times for a set.</item>
+        <item>Start on all fours with your knees under your butt and your hands under your shoulders. \n\nThen lift your left leg to the side at a 90 degree angle. Repeat 10-15 times for a set.</item>
+        <item>Lie on your stomach with your knees bent and heels squeezed together. \n\nThen lift your feet up and down 10-15 times. The exercise is very effective at squeezing your butt.</item>
+        <item>Lie face down on a bench, place your butt on the edge of the bench and hold on to the sides. \n\nThen lift your legs until they are level with your upper body. \n\nLift one leg higher than the other, then switch to the other leg and repeat.</item>
+        <item>Stand straight with arms akimbo, then kick your right leg backwards and extend it as far as you can, meanwhile keep your legs and back straight and head up. \n\nGo back to the start position and switch to the other side.</item>
+        <item>Stand with your hands on your hips and feet a little wider than shoulder width apart. \n\nThen lower your body until your thighs are parallel to the floor. \n\nYour knees should be extended in the same direction as your tiptoes. Repeat 10-15 times for a set.</item>
+        <item>Stand with your hands on your hips and your feet a little wider than shoulder width apart. \n\nThen lower your body until your thighs are parallel to the floor. \n\nLift your heels when you come up. Repeat the exercise 10-15 times for a set.</item>
+        <item>Start on all fours with your knees under your butt and your hands directly under your shoulders. \n\nThen kick one leg back until it is parallel with the ground. Switch to the other side after several sets.</item>
+        <item>Lie down on your side with your head rested on your arm. Lift your upper leg up and return to the start position. \n\nSwitch to the other side after several sets.</item>
+        <item>Start with your feet apart wider than your shoulders. \n\nLower your body until your thighs are parallel with the floor. Your knees should be extended in line with your toes. \n\nWhen you come up, kick one leg to the side. Then repeat the exercise, switching to the other leg.</item>
+        <item>Lie on your back with your knees bent and feet flat on the floor. Then lift one leg up while raising your hips off the floor as high as you can. \n\nGo back to the start position and repeat with the other side.</item>
+        <item>Stand on the floor with your arms extended straight out to the sides at shoulder height. \n\nMove your arms forward in circles, and then move backwards.</item>
+        <item>Stand with your legs shoulder width apart and your knees bent slightly.\nBend your elbows and clench your fists in front of your face.\nExtend one arm forward with the palm facing the floor. \nTake the arm back and repeat with the other arm.</item>
+        <item>Sit on the floor with your knees bent and feet flat on the floor. Put your hands beneath your shoulders with your fingers pointing toward your hips.\n\nLift your hips off the floor. Then bend and extend your elbows to lower and lift your hips.\n\nRepeat the exercise to strengthen your upper arms.</item>
+        <item>Stand on the floor with your arms extended straight forward at shoulder height. \n\nRaise your arms above your head. Return to the start position and repeat.</item>
+        <item>Hold your forearms together at shoulder height and bend your elbows with your hands together to make an \'L\' shape.\n\nThen lift your forearms up and down.</item>
+        <item>Start in the straight arm plank position.\nLift your right arm and left leg until they are parallel with the ground.\nReturn to the start position and repeat with the other side.</item>
+        <item>Start in the regular push-up position. \n\nLower your body down, then bend your knees and move your hips backward with your arms straight. \n\nGo back to the push-up position and repeat.</item>
+        <item>Start in the straight arm plank position.\nLift your right hand to tap your left shoulder. \nReturn to the start position and repeat with the other hand.</item>
+        <item>Start on all fours with your knees under your butt and your hands directly under your shoulders. \nBend your elbows and do a push-up.\nReturn to the start position and repeat.</item>
+    </string-array>

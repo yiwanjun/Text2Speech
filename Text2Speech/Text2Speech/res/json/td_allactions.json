@@ -1,0 +1,806 @@
+ [
+  {
+  "id": 0,
+  "name": "Abdominal Crunch",
+  "unit": "",
+  "imagePath": "td_action_img/abdominal_crunch",
+  "VideoPath": "",
+  "coach": "Keep your neck relaxed. Your feet should always stay on the floor. Exhale when lifting and inhale when stretching out."
+  },
+  {
+  "id": 1,
+  "name": "Leg Raise",
+  "unit": "",
+  "imagePath": "td_action_img/leg_raise",
+  "VideoPath": "https://www.youtube.com/watch?v=l4kQd9eWclE",
+  "coach": "Exhal when lifting your legs and inhal when lowering."
+  },
+  {
+  "id": 2,
+  "name": "Sit Ups",
+  "unit": "",
+  "imagePath": "td_action_img/sit_ups",
+  "VideoPath": "https://www.youtube.com/watch?v=jDwoBqPH0jk",
+  "coach": "Your feet should always stay on the floor. Use your abdominal strength to get up. Don't tug your neck to get up."
+  },
+  {
+  "id": 3,
+  "name": "Plank",
+  "unit": "s",
+  "imagePath": "td_action_img/plank",
+  "VideoPath": "https://www.youtube.com/watch?v=pSHjTRCQxIw",
+  "coach": "Keep your body straight. Hold this position as long as you can. Don't forget to breathe."
+  },
+  {
+  "id": 4,
+  "name": "Reverse Crunch",
+  "unit": "",
+  "imagePath": "td_action_img/reverse_crunch",
+  "VideoPath": "https://www.youtube.com/watch?v=hyv14e2QDq0",
+  "coach": "Don't let your elbows reach your knees. Exhale when lifting and inhale when stretching out."
+  },
+  {
+  "id": 5,
+  "name": "Side Plank",
+  "unit": "s",
+  "imagePath": "td_action_img/side_plank",
+  "VideoPath": "https://www.youtube.com/watch?v=NXr4Fw8q60o",
+  "coach": "Keep your body straight. Don't forget to breathe."
+  },
+  {
+  "id": 6,
+  "name": "Long Arm Crunch",
+  "unit": "",
+  "imagePath": "td_action_img/long_arm_crunch",
+  "VideoPath": "https://www.youtube.com/watch?v=3fDjzzfovZE",
+  "coach": "Keep your neck relaxed. Your feet should always stay on the floor. Exhale when lifting and inhale when stretching out."
+  },
+  {
+  "id": 7,
+  "name": "Russian Twist",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/russian_twist",
+  "VideoPath": "https://www.youtube.com/watch?v=wkD8rjkodUI",
+  "speed": 500,
+  "coach": "Keep your abdomen tight during the exercise."
+  },
+  {
+  "id": 8,
+  "name": "Bicycle Crunch",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/bicycle_crunch",
+  "VideoPath": "https://www.youtube.com/watch?v=1we3bh9uhqY",
+  "speed": 500,
+  "coach": "Don't interlock your fingers. Just place your hands behind your ears. Exhale when lifting your body and inhale when lowering."
+  },
+  {
+  "id": 9,
+  "name": "Cobras",
+  "unit": "",
+  "imagePath": "td_action_img/cobras",
+  "VideoPath": "https://www.youtube.com/watch?v=Aa6zdmje-c4",
+  "coach": "Tighten your abdominals when pushing up your chest."
+  },
+  {
+  "id": 10,
+  "name": "Bird Dog",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/bird_dog",
+  "VideoPath": "https://www.youtube.com/watch?v=zL0YEtJulBs",
+  "coach": "Keep your stretched arm and leg parallel to the floor. Don't wobble your body."
+  },
+  {
+  "id": 11,
+  "name": "Bridge",
+  "unit": "s",
+  "imagePath": "td_action_img/bridge",
+  "VideoPath": "https://www.youtube.com/watch?v=lkYUwiKSEmI",
+  "coach": "Hold this position as long as you can. Don't forget to breathe."
+  },
+  {
+  "id": 12,
+  "name": "Mountain Climber",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/mountain_climber",
+  "VideoPath": "https://www.youtube.com/watch?v=DyeZM-_VnRc",
+  "speed": 200,
+  "coach": "Do it as fast as you can."
+  },
+  {
+  "id": 13,
+  "name": "Cross Arm Crunch",
+  "unit": "",
+  "imagePath": "td_action_img/cross_arm_crunch",
+  "VideoPath": "https://www.youtube.com/watch?v=mK_VURuFYyQ",
+  "coach": "Keep your neck relaxed. Your feet should always stay on the floor. Exhale when lifting and inhale when stretching out."
+  },
+  {
+  "id": 14,
+  "name": "One Leg Bridge",
+  "unit": "",
+  "imagePath": "td_action_img/one_leg_bridge",
+  "VideoPath": "https://www.youtube.com/watch?v=nYJNZwm1tPY",
+  "coach": "Keep your spine straight when lifting your hips. Exhale when lifting and inhale when lowering."
+  },
+  {
+  "id": 15,
+  "name": "Jumping Jacks",
+  "unit": "",
+  "imagePath": "td_action_img/jumping_jacks",
+  "VideoPath": "https://www.youtube.com/watch?v=yDSMdd8hiFg",
+  "speed": 200,
+  "coach": "Inhale when your feet are apart and Exhale when coming back to the start position."
+  },
+  {
+  "id": 16,
+  "name": "Straight Arm Plank",
+  "unit": "s",
+  "imagePath": "td_action_img/straight_arm_plank",
+  "VideoPath": "https://www.youtube.com/watch?v=tE_CXIZvpF8",
+  "coach": "Keep your body straight. Hold this position as long as you can. Don't forget to breathe."
+  },
+  {
+  "id": 17,
+  "name": "Wall Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/wall_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=a6YHbXD2XlU",
+  "coach": "Keep your body straight. Inhale when bending your arms and exhale when stretching out."
+  },
+  {
+  "id": 18,
+  "name": "Tricip Dip",
+  "unit": "",
+  "imagePath": "td_action_img/triceps_dip_on_chair",
+  "VideoPath": "https://www.youtube.com/watch?v=tKjcgfu44sI",
+  "coach": "Inhale when bending your arms and exhale when stretching them."
+  },
+  {
+  "id": 19,
+  "name": "Step-Up Onto Chair",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/step-up_onto_chair",
+  "VideoPath": "https://www.youtube.com/watch?v=ay-MtjfYtwo",
+  "speed": 500,
+  "coach": "Exhale when you step up and Inhale when you step down."
+  },
+  {
+  "id": 20,
+  "name": "Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=Eh00_rniF8E",
+  "coach": "Inhale when you go down and exhale when you go up. Keep your body straight."
+  },
+  {
+  "id": 21,
+  "name": "Squat",
+  "unit": "",
+  "imagePath": "td_action_img/squat",
+  "VideoPath": "https://www.youtube.com/watch?v=xDpB8pWEjhk",
+  "coach": "Your knees should be extended in the same direction as your tiptoes. Your knees should not go over your toes. Exhale when you go down and inhale when you go up. Remember to use the strength of your butts."
+  },
+  {
+  "id": 22,
+  "name": "Side Lunge",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/side_lunge",
+  "VideoPath": "https://www.youtube.com/watch?v=zCG7YcjggVo",
+  "speed": 500,
+  "coach": "Exhale when you go down and inhale when you go up."
+  },
+  {
+  "id": 23,
+  "name": "Push Up & Rotation",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/push_up_&_rotation",
+  "VideoPath": "https://www.youtube.com/watch?v=iu3VptPuikY",
+  "coach": "Keep your torso straight. Inhale when you go down and exhale when you go up."
+  },
+  {
+  "id": 24,
+  "name": "Alternating Lunge",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/lunge",
+  "VideoPath": "https://www.youtube.com/watch?v=Z2n58m2i4jg",
+  "coach": "Keep enough distance between your feet. Your front knee should not go over your toes. Exhale when you go down and inhale when you go up."
+  },
+  {
+  "id": 25,
+  "name": "Wide Arm Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/wide_arm_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=B78GwfC-87Y",
+  "coach": "Inhale when you go down and exhale when you go up. Keep your body straight."
+  },
+  {
+  "id": 26,
+  "name": "Burpee",
+  "unit": "",
+  "imagePath": "td_action_img/burpee",
+  "VideoPath": "https://www.youtube.com/watch?v=JZQA08SlJnM",
+  "speed": 200,
+  "coach": "Do the steps of the exercise as quickly as you can. Inhale when you go down and exhale when you go up."
+  },
+  {
+  "id": 27,
+  "name": "Curtsy Lunge",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/curtsy_lunge",
+  "VideoPath": "https://www.youtube.com/watch?v=VMbF54MDLLo",
+  "speed": 500,
+  "coach": "Exhale when you go down and inhale when you go up."
+  },
+  {
+  "id": 28,
+  "name": "Incline Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/incline_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=Z0bRiVhnO8Q",
+  "coach": "Inhale when you go down and exhale when you go up. Keep your body straight."
+  },
+  {
+  "id": 29,
+  "name": "Right Side  Plank",
+  "unit": "s",
+  "imagePath": "td_action_img/right_side_plank",
+  "VideoPath": "https://www.youtube.com/watch?v=NXr4Fw8q60o",
+  "coach": "Keep your body straight. Don't forget to breathe."
+  },
+  {
+  "id": 30,
+  "name": "Diamond Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/diamond_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=J0DnG1_S92I",
+  "coach": "Inhale when you go down and exhale when you go up. Keep your body straight."
+  },
+  {
+  "id": 31,
+  "name": "Split Squat Right",
+  "unit": "",
+  "imagePath": "td_action_img/split_squat_right",
+  "VideoPath": "https://www.youtube.com/watch?v=2V5NipAulKY",
+  "coach": "Keep enough distance between your feet. Your front knee should not go over your toes. Try to put your weight on your front heel. Keep your upper body straight."
+  },
+  {
+  "id": 32,
+  "name": "Split Squat Left",
+  "unit": "",
+  "imagePath": "td_action_img/split_squat_left",
+  "VideoPath": "https://www.youtube.com/watch?v=2V5NipAulKY",
+  "coach": "Keep enough distance between your feet. Your front knee should not go over your toes. Try to put your weight on your front heel. Keep your upper body straight."
+  },
+  {
+  "id": 33,
+  "name": "High Knees",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/high_knees",
+  "VideoPath": "https://www.youtube.com/watch?v=kMFv3Alg-Gc",
+  "speed": 200,
+  "coach": "Do it as fast as you can."
+  },
+  {
+  "id": 34,
+  "name": "Knee Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/knee_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=eoTbWLUFqRg",
+  "coach": "Inhale when you go down and exhale when you go up. Keep your back straight."
+  },
+  {
+  "id": 35,
+  "name": "Left Side Plank",
+  "unit": "s",
+  "imagePath": "td_action_img/left_side_plank",
+  "VideoPath": "https://www.youtube.com/watch?v=NXr4Fw8q60o",
+  "coach": "Keep your body straight. Don't forget to breathe."
+  },
+  {
+  "id": 36,
+  "name": "Wall Sit",
+  "unit": "s",
+  "imagePath": "td_action_img/wall_sit",
+  "VideoPath": "https://www.youtube.com/watch?v=M5MKJ4T4e2k",
+  "coach": "Keep your back straight."
+  },
+  {
+  "id": 37,
+  "name": "Lunge Knee Hops Left",
+  "unit": "",
+  "imagePath": "td_action_img/lunge_knee_hops_left",
+  "VideoPath": "https://m.youtube.com/watch?v=iJsqhnRvAVE",
+  "coach": "Exhale when you go down and inhale when you go up."
+  },
+  {
+  "id": 38,
+  "name": "Lunge Knee Hops Right",
+  "unit": "",
+  "imagePath": "td_action_img/lunge_knee_hops_right",
+  "VideoPath": "https://m.youtube.com/watch?v=iJsqhnRvAVE",
+  "coach": "Exhale when you go down and inhale when you go up."
+  },
+  {
+  "id": 39,
+  "name": "Decline Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/decline_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=SKPab2YC8BE",
+  "coach": "Inhale when you go down and exhale when you go up. Keep your body straight."
+  },
+  {
+  "id": 40,
+  "name": "Jumping Squat",
+  "unit": "",
+  "imagePath": "td_action_img/jumping_squat",
+  "VideoPath": "https://www.youtube.com/watch?v=gijGpRSA9FI",
+  "speed": 150,
+  "coach": "Your knees should not go over your toes when squatting down. Remember to use the strength of your abdominal muscles."
+  },
+  {
+  "id": 41,
+  "name": "One Leg Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/one_leg_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=kvV6Mfchga4",
+  "coach": "Inhale when you go down and exhale when you go up. Keep your back straight."
+  },
+  {
+  "id": 42,
+  "name": "Staggered Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/staggered_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=0CZLos-i1PM",
+  "coach": "Inhale when you go down and exhale when you go up. Keep your body straight."
+  },
+  {
+  "id": 43,
+  "name": "Backward Lunge With Front Kick Right",
+  "unit": "",
+  "imagePath": "td_action_img/backward_lunge_with_front_kick_right",
+  "VideoPath": "https://www.youtube.com/watch?v=0_bTYQCxgMg",
+  "speed": 200,
+  "coach": "Lower your body until both of your knees are at 90 degree angles. Exhale when you go down and inhale when you go up."
+  },
+  {
+  "id": 44,
+  "name": "Backward Lunge With Front Kick Left",
+  "unit": "",
+  "imagePath": "td_action_img/backward_lunge_with_front_kick_left",
+  "VideoPath": "https://www.youtube.com/watch?v=0_bTYQCxgMg",
+  "speed": 200,
+  "coach": "Lower your body until both of your knees are at 90 degree angles. Exhale when you go down and inhale when you go up."
+  },
+  {
+  "id": 45,
+  "name": "Spiderman Push Up",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/spiderman_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=DYONORexgpY",
+  "speed": 500,
+  "coach": "Inhale when you go down and exhale when you go up. Keep your back straight."
+  },
+  {
+  "id": 46,
+  "name": "Hindu Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/hindu_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=nBLy1IGtSJ8",
+  "speed": 500,
+  "coach": "Inhale when going back to the start position and Exhale when lowering and raising your body."
+  },
+  {
+  "id": 47,
+  "name": "Donkey Kick Right",
+  "unit": "",
+  "imagePath": "td_action_img/donkey_kick_right",
+  "VideoPath": "https://www.youtube.com/watch?v=SJ1Xuz9D-ZQ",
+  "speed": 500,
+  "coach": "Don't lift your knee higher than your back. Exhale when lifting your knee and inhale when lowering."
+  },
+  {
+  "id": 48,
+  "name": "Butt Bridge",
+  "unit": "",
+  "imagePath": "td_action_img/butt_bridge",
+  "VideoPath": "https://www.youtube.com/watch?v=NCStg202rLU",
+  "coach": "Exhale when lifting your butts and inhale when lowering."
+  },
+  {
+  "id": 49,
+  "name": "Donkey Kick Left",
+  "unit": "",
+  "imagePath": "td_action_img/donkey_kick_left",
+  "VideoPath": "https://www.youtube.com/watch?v=SJ1Xuz9D-ZQ",
+  "speed": 500,
+  "coach": "Don't lift your knee higher than your back. Exhale when lifting your knee and inhale when lowering."
+  },
+  {
+  "id": 50,
+  "name": "Fire Hydrant Right",
+  "unit": "",
+  "imagePath": "td_action_img/fire_hydrant_right",
+  "VideoPath": "https://www.youtube.com/watch?v=La3xYT8MGks",
+  "speed": 500,
+  "coach": "Keep your arms straight. Exhale when lifting your leg and inhale when lowering."
+  },
+  {
+  "id": 51,
+  "name": "Fire Hydrant Left",
+  "unit": "",
+  "imagePath": "td_action_img/fire_hydrant_left",
+  "VideoPath": "https://www.youtube.com/watch?v=La3xYT8MGks",
+  "speed": 500,
+  "coach": "Keep your arms straight. Exhale when lifting your leg and inhale when lowering."
+  },
+  {
+  "id": 52,
+  "name": "Froggy Glutes Lifts",
+  "unit": "",
+  "imagePath": "td_action_img/froggy_glutes_lifts",
+  "VideoPath": "https://www.youtube.com/watch?v=yxNSqAS4sm4",
+  "coach": "Don't lift your upper body when lifting your feet. Exhale when lifting your feet and inhale when lowering them."
+  },
+  {
+  "id": 53,
+  "name": "Reverse Flutter Kicks",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/reverse_flutter_kicks",
+  "VideoPath": "https://www.youtube.com/watch?v=zUT-V36Il-s",
+  "speed": 500,
+  "coach": "Keep your legs straight."
+  },
+  {
+  "id": 54,
+  "name": "Standing Glute Kickbacks",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/standing_glute_kickbacks",
+  "VideoPath": "https://www.youtube.com/watch?v=Ay0fhfp-k7Q",
+  "coach": "Keep your leg straight when kicking it. Keep your upper body stays still."
+  },
+  {
+  "id": 55,
+  "name": "Pile Squat",
+  "unit": "",
+  "imagePath": "td_action_img/pile_squat",
+  "VideoPath": "https://www.youtube.com/watch?v=hdiRghh0BTg",
+  "speed": 500,
+  "coach": "Your knees should be extended in the same direction as your toes. Your knees should not go over your toes. Exhale when you go down and inhale when you go up."
+  },
+  {
+  "id": 56,
+  "name": "Sumo Squat Calf",
+  "unit": "",
+  "imagePath": "td_action_img/sumo_squat_calf",
+  "VideoPath": "https://www.youtube.com/watch?v=QWgISh-t4W0",
+  "speed": 500,
+  "coach": "Keep your upper body straight. Exhale when lifting your heels and inhale when lowering."
+  },
+  {
+  "id": 57,
+  "name": "Glute Kick Back",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/glute_kick_back",
+  "VideoPath": "https://www.youtube.com/watch?v=45YVKSQN88E",
+  "coach": "Exhale when lifting your leg and inhale when lowering."
+  },
+  {
+  "id": 58,
+  "name": "Side-Lying Leg Lift",
+  "unit": "",
+  "imagePath": "td_action_img/side-lying_leg_lift",
+  "VideoPath": "https://www.youtube.com/watch?v=jgh6sGwtTwk",
+  "coach": "Your leg should go straight up and down. Keep your leg straight."
+  },
+  {
+  "id": 59,
+  "name": "Sumo Squat & Leg Raise",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/sumo_squat_&_leg_raise",
+  "VideoPath": "https://www.youtube.com/watch?v=0tRPIEWupy4",
+  "speed": 200,
+  "coach": "Your knees should be extended in the same direction as your toes. Your knees should not go over your toes. Exhale when you go down and inhale when you go up."
+  },
+  {
+  "id": 60,
+  "name": "Hip Bridge & Leg Lift",
+  "unit": "",
+  "imagePath": "td_action_img/hip_bridge_&_leg_lift",
+  "VideoPath": "https://www.youtube.com/watch?v=CYWmz3Zxr8s",
+  "coach": "Keep your spine straight when lifting your hips. Exhale when lifting and inhale when lowering."
+  },
+  {
+  "id": 61,
+  "name": "Arm Circles",
+  "unit": "",
+  "imagePath": "td_action_img/arm_circles",
+  "VideoPath": "https://www.youtube.com/watch?v=6KPD7Mr7Yjk",
+  "speed": 500,
+  "coach": "Keep your arms straight."
+  },
+  {
+  "id": 62,
+  "name": "Puches",
+  "unit": "s",
+  "alternation": 1,
+  "imagePath": "td_action_img/puches",
+  "VideoPath": "https://www.youtube.com/watch?v=Gw2DNZcXgXM",
+  "coach": "Do it as fast as you can."
+  },
+  {
+  "id": 63,
+  "name": "Floor Triceps Dips",
+  "unit": "",
+  "imagePath": "td_action_img/floor_triceps_dips",
+  "VideoPath": "https://www.youtube.com/watch?v=s3Mppxwx1o8",
+  "coach": "Inhale when bending your arms and exhale when stretching them."
+  },
+  {
+  "id": 64,
+  "name": "Arm Raises",
+  "unit": "",
+  "imagePath": "td_action_img/arm_raises",
+  "VideoPath": "https://www.youtube.com/watch?v=eG0kbjDAM68",
+  "coach": "Inhale when raising your arms and exhale when lowering."
+  },
+  {
+  "id": 65,
+  "name": "Chest Press Pulse",
+  "unit": "",
+  "imagePath": "td_action_img/chest_press_pulse",
+  "VideoPath": "https://www.youtube.com/watch?v=gNywcYw-YSM",
+  "speed": 500,
+  "coach": "Try harder to push your forearms together."
+  },
+  {
+  "id": 66,
+  "name": "Diagonal Plank",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/diagonal_plank",
+  "VideoPath": "https://www.youtube.com/watch?v=YI4WVmBiqvE",
+  "coach": "Keep your abdomen tight."
+  },
+  {
+  "id": 67,
+  "name": "Reverse Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/reverse_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=a00N2M7I1_o",
+  "coach": "Inhale when you go down and exhale when you go up."
+  },
+  {
+  "id": 68,
+  "name": "Plank Taps",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/plank_taps",
+  "VideoPath": "https://www.youtube.com/watch?v=ztpXZm7Dv80",
+  "coach": "Keep your body straight."
+  },
+  {
+  "id": 69,
+  "name": "Box Push Up",
+  "unit": "",
+  "imagePath": "td_action_img/box_push_up",
+  "VideoPath": "https://www.youtube.com/watch?v=3K8T3JSA2H8",
+  "coach": "Inhale when you go down and exhale when you go up."
+  },
+  {
+  "id": 70,
+  "name": "Side Leg Lift Right",
+  "unit": "",
+  "imagePath": "td_action_img/side_leg_lift_right",
+  "VideoPath": "https://www.youtube.com/watch?v=jgh6sGwtTwk",
+  "coach": "Your leg should go straight up and down. Keep your leg straight."
+  },
+  {
+  "id": 71,
+  "name": "Roundhouse Squat Kick",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/roundhouse_squat_kick",
+  "VideoPath": "https://www.youtube.com/watch?v=yRNbfH48aMY",
+  "coach": "Your knees should be extended in the same direction as your tiptoes. Your knees should not go over your toes. Exhale when you go down and inhale when you go up."
+  },
+  {
+  "id": 72,
+  "name": "Squat Thrust with Twist",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/squat_thrust_with_twist",
+  "VideoPath": "https://www.youtube.com/watch?v=i86biUkrUzQ",
+  "coach": "Keep your weight in your heels. Your knees should not go over your toes. Your knees should always face forward."
+  },
+  {
+  "id": 73,
+  "name": "Single Leg Calf Raise Right",
+  "unit": "",
+  "imagePath": "td_action_img/single_leg_calf_raise_right",
+  "VideoPath": "https://www.youtube.com/watch?v=b2t5oTCch-0",
+  "coach": "Exhale when lifting your heels and inhale when lowering."
+  },
+  {
+  "id": 74,
+  "name": "Single Leg Calf Raise Left",
+  "unit": "",
+  "imagePath": "td_action_img/single_leg_calf_raise_left",
+  "VideoPath": "https://www.youtube.com/watch?v=b2t5oTCch-0",
+  "coach": "Exhale when lifting your heels and inhale when lowering."
+  },
+  {
+  "id": 75,
+  "name": "Bulgarian Split Squat Left",
+  "unit": "",
+  "imagePath": "td_action_img/bulgarian_split_squat_left",
+  "VideoPath": "https://www.youtube.com/watch?v=q4iZhYpVOOA",
+  "coach": "Keep enough distance between your front foot and the bench. Keep your upper body straight."
+  },
+  {
+  "id": 76,
+  "name": "Bottom Leg Lift Right",
+  "unit": "",
+  "imagePath": "td_action_img/bottom_leg_lift_right",
+  "VideoPath": "https://www.youtube.com/watch?v=9a8r12qqFHs",
+  "coach": "Exhale when lifting your leg and inhale when lowering."
+  },
+  {
+  "id": 77,
+  "name": "Sumo Squat Calf Raise",
+  "unit": "",
+  "imagePath": "td_action_img/sumo_squat_calf_raise",
+  "VideoPath": "https://www.youtube.com/watch?v=QWgISh-t4W0",
+  "coach": "Keep your upper body straight. Exhale when lifting your heels and inhale when lowering."
+  },
+  {
+  "id": 78,
+  "name": "Bottom Leg Lift Left",
+  "unit": "",
+  "imagePath": "td_action_img/bottom_leg_lift_left",
+  "VideoPath": "https://www.youtube.com/watch?v=9a8r12qqFHs",
+  "coach": "Exhale when lifting your leg and inhale when lowering."
+  },
+  {
+  "id": 79,
+  "name": "Tip Toe Squat",
+  "unit": "",
+  "imagePath": "td_action_img/tip_toe_squat",
+  "VideoPath": "https://www.youtube.com/watch?v=nWrHLhy41Yo",
+  "coach": "Exhale when you go down and inhale when you go up. Keep your upper body straight."
+  },
+  {
+  "id": 80,
+  "name": "Side Leg Circles Left",
+  "unit": "",
+  "imagePath": "td_action_img/side_leg_circles_left",
+  "VideoPath": "https://www.youtube.com/watch?v=5f_NWe3QGkA",
+  "speed": 200,
+  "coach": "Keep your lifted leg straight."
+  },
+  {
+  "id": 81,
+  "name": "Scissors",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/scissors",
+  "VideoPath": "https://www.youtube.com/watch?v=wC7Lon6zHSY",
+  "coach": "Keep your back flat on the floor."
+  },
+  {
+  "id": 82,
+  "name": "Side Leg Lift Left",
+  "unit": "",
+  "imagePath": "td_action_img/side_leg_lift_left",
+  "VideoPath": "https://www.youtube.com/watch?v=jgh6sGwtTwk",
+  "coach": "Your leg should go straight up and down. Keep your leg straight."
+  },
+  {
+  "id": 83,
+  "name": "Side Leg Circles Right",
+  "unit": "",
+  "imagePath": "td_action_img/side_leg_circles_right",
+  "VideoPath": "https://www.youtube.com/watch?v=5f_NWe3QGkA",
+  "speed": 200,
+  "coach": "Keep your lifted leg straight."
+  },
+  {
+  "id": 84,
+  "name": "Lunge Twist",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/lunge_twist",
+  "VideoPath": "https://www.youtube.com/watch?v=0xTpIQaPjYs",
+  "coach": "Your knees should always face forward. Keep your upper body straight."
+  },
+  {
+  "id": 85,
+  "name": "Bulgarian Split Squat Right",
+  "unit": "",
+  "imagePath": "td_action_img/bulgarian_split_squat_right",
+  "VideoPath": "https://www.youtube.com/watch?v=q4iZhYpVOOA",
+  "coach": "Keep enough distance between your front foot and the bench. Keep your upper body straight."
+  },
+  {
+  "id": 86,
+  "name": "Skater Jump",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/skater_jump",
+  "VideoPath": "https://www.youtube.com/watch?v=4RuxhVJ4-pg",
+  "speed": 400
+  },
+  {
+  "id": 87,
+  "name": "Side Hop",
+  "unit": "",
+  "imagePath": "td_action_img/side_hop",
+  "VideoPath": "https://www.youtube.com/watch?v=dvbjlbs5rm0",
+  "speed": 300
+  },
+  {
+  "id": 88,
+  "name": "Backward Lunge",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/backward_lunge",
+  "VideoPath": "https://www.youtube.com/watch?v=pdz8xQ2ZbrU",
+  },
+  {
+  "id": 89,
+  "name": "Superman",
+  "unit": "",
+  "imagePath": "td_action_img/superman",
+  "VideoPath": "https://www.youtube.com/watch?v=z6PJMT2y8GQ",
+  },
+  {
+  "id": 90,
+  "name": "Plank Leg Up",
+  "unit": "",
+  "alternation": 1,
+  "imagePath": "td_action_img/plank_leg_up",
+  "VideoPath": "https://www.youtube.com/watch?v=-ifBBmq-J1k",
+  },
+  {
+  "id": 91,
+  "name": "Glute Kick Back Left",
+  "unit": "",
+  "VideoPath": "https://www.youtube.com/watch?v=45YVKSQN88E",
+  "imagePath": "td_action_img/glute_kick_back_left"
+  },
+  {
+  "id": 92,
+  "name": "Glute Kick Back Right",
+  "unit": "",
+  "VideoPath": "https://www.youtube.com/watch?v=45YVKSQN88E",
+  "imagePath": "td_action_img/glute_kick_back_right"
+  },
+  {
+  "id": 93,
+  "name": "Hip Bridge & Leg Lift Left",
+  "unit": "",
+  "VideoPath": "https://www.youtube.com/watch?v=CYWmz3Zxr8s",
+  "imagePath": "td_action_img/hip_bridge_&_leg_lift_left"
+  },
+  {
+  "id": 94,
+  "name": "Hip Bridge & Leg Lift Right",
+  "unit": "",
+  "VideoPath": "https://www.youtube.com/watch?v=CYWmz3Zxr8s",
+  "imagePath": "td_action_img/hip_bridge_&_leg_lift_right"
+  }
+  ]

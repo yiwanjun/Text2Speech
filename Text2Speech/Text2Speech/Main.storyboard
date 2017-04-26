@@ -160,6 +160,61 @@
             </objects>
             <point key="canvasLocation" x="-228" y="317"/>
         </scene>
+        <!--Uinit By Second View Controller-->
+        <scene sceneID="Us8-mM-YAM">
+            <objects>
+                <viewController storyboardIdentifier="UinitBySecondViewController" id="D4R-0r-Wtr" customClass="UinitBySecondViewController" customModule="Text2Speech" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5AV-Ta-gqU"/>
+                        <viewControllerLayoutGuide type="bottom" id="f3b-3F-ajG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Has-mh-EkK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOh-IY-zNJ">
+                                <rect key="frame" x="164" y="222" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnm-AA-L1D">
+                                <rect key="frame" x="119" y="389" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="开始"/>
+                                <connections>
+                                    <action selector="begain:" destination="D4R-0r-Wtr" eventType="touchUpInside" id="sXV-9Z-97q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gyq-Ep-CVD"/>
+                    <connections>
+                        <outlet property="timeLabel" destination="wOh-IY-zNJ" id="6mh-OF-acl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="crC-4k-BJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1692" y="-1122.1889055472266"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WSg-iV-6Bd">
+            <objects>
+                <navigationController id="0PH-qF-I7f" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RDQ-Gb-mXd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="D4R-0r-Wtr" kind="relationship" relationship="rootViewController" id="PGu-Y0-zVn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tg4-JM-bvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2481" y="-1122"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jva-ya-FI0">
             <objects>

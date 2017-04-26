@@ -12,16 +12,12 @@ import AVFoundation
 class NBAudioBot: NSObject {
     
     fileprivate static let shareBot = NBAudioBot()
-    
     override init() {
         super.init()
         
     }
-    
-    fileprivate var audioPlayer : AVAudioPlayer?
-    
-  
 
+    fileprivate var audioPlayer : AVAudioPlayer?
 }
 
 extension NBAudioBot{
@@ -30,6 +26,7 @@ extension NBAudioBot{
         
         NotificationCenter.default.addObserver(shareBot, selector: #selector(notificationBegain), name: Notification.Name(rawValue:TTSpeechManager.speechStatus.begain), object: nil)
         NotificationCenter.default.addObserver(shareBot, selector: #selector(notificationEnd), name: Notification.Name(rawValue:TTSpeechManager.speechStatus.end), object: nil)
+        NotificationCenter.default.addObserver(shareBot, selector: #selector(notificationExit), name: Notification.Name(rawValue:TTSpeechManager.speechStatus.exit), object: nil)
         
         let seesion = AVAudioSession.sharedInstance()
         do {
@@ -50,25 +47,26 @@ extension NBAudioBot{
                 player.delegate = shareBot
                 player.prepareToPlay()
                 player.play()
-                
             } catch  {
                 throw error
             }
         }
     }
     public class func contiuePlay(){
-        if (shareBot.audioPlayer?.prepareToPlay())!{
-            shareBot.audioPlayer?.play()
+        if let player = shareBot.audioPlayer, player.prepareToPlay(){
+            player.play()
         }
     }
     public class func pasuePlay(){
-        if (shareBot.audioPlayer?.isPlaying)!{
-            shareBot.audioPlayer?.pause()
+        if let player = shareBot.audioPlayer , player.isPlaying{
+            player.pause()
         }
     }
     
     public class func stopPlay(){
-        shareBot.audioPlayer?.stop()
+        if let plyar = shareBot.audioPlayer{
+            plyar.stop()
+        }
     }
 }
 
@@ -83,6 +81,11 @@ extension NBAudioBot{
     @objc func notificationEnd(){
         print("notificationEnd")
         NBAudioBot.contiuePlay()
+    }
+    
+    @objc func notificationExit(){
+        print("notificationExit")
+        NBAudioBot.stopPlay()
     }
 }
 

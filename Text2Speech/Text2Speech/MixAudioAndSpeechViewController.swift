@@ -37,7 +37,6 @@ class MixAudioAndSpeechViewController: UIViewController {
         self.flowManager.stop()
     }
     
-    
     @IBAction func playMusic(_ sender: Any) {
         playerAudio()
         self.flowManager.begain()
@@ -53,6 +52,7 @@ class MixAudioAndSpeechViewController: UIViewController {
 
 }
 extension MixAudioAndSpeechViewController{
+    
     func playerAudio()  {
         let path = Bundle.main.path(forResource: "BackGroundMusic", ofType: "mp3")
         

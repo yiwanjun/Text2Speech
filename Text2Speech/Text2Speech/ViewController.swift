@@ -28,6 +28,10 @@ class ViewController: UITableViewController {
         [
             "name":"顺序控制",
             "identifier":"SpeechFlowViewController"
+        ],
+        [
+            "name":"根据actionId 和 time 生成一个可以的FlowItem",
+            "identifier":"UinitBySecondViewController"
         ]
     
     ]
@@ -53,9 +57,6 @@ class ViewController: UITableViewController {
         let id = controllers[indexPath.row]["identifier"]
         let vc = storyboard?.instantiateViewController(withIdentifier: id!)
         self.navigationController?.pushViewController(vc!, animated: true)
-        
     }
-    
-
 }
 

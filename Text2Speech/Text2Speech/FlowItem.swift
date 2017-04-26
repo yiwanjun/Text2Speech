@@ -13,11 +13,11 @@ struct FlowItem {
     public var utt : AVSpeechUtterance
     public var delay : TimeInterval
     public var index : NSInteger
+    public var content : String?
     
-    public init?(utt: AVSpeechUtterance,delay: TimeInterval,index: NSInteger){
+    public init?(utt: AVSpeechUtterance,delay: NSNumber,index: NSInteger){
         self.utt = utt
-        self.delay = delay
+        self.delay = TimeInterval(delay)
         self.index = index
     }
-    
 }

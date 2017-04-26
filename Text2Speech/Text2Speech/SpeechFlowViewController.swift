@@ -32,7 +32,6 @@ class SpeechFlowViewController: UIViewController {
         self.flowManager.begain()
     }
     
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.flowManager.stop()

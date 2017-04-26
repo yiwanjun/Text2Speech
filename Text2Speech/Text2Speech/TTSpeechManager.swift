@@ -11,7 +11,6 @@ import AVFoundation
 import Foundation
 import Dispatch
 
-
 final public class TTSpeechManager: NSObject {
     
     fileprivate static let shareManager = TTSpeechManager()
@@ -37,37 +36,40 @@ final public class TTSpeechManager: NSObject {
         static let end     = "kSynTheEnd"
         static let exit    = "kSynTheExit"
     }
+    static let timerSecondUpdate = "kTimerSecondUpdate"
 }
-
+//MARK: - Action
 extension TTSpeechManager{
     open class func pause(){
-        if ((shareManager.synThesizer) != nil  && (shareManager.synThesizer?.isSpeaking)!) {
-            shareManager.synThesizer?.pauseSpeaking(at: AVSpeechBoundary.word)
+        if let syn = shareManager.synThesizer ,syn.isSpeaking{
+            syn.pauseSpeaking(at: AVSpeechBoundary.word)
         }
     }
     
     open class func contiue(){
-        if ((shareManager.synThesizer) != nil  && (shareManager.synThesizer?.isPaused)!) {
-            shareManager.synThesizer?.continueSpeaking()
+        if let syn = shareManager.synThesizer,syn.isPaused{
+            syn.continueSpeaking()
         }
     }
     
     open class func stop(){
-        if ((shareManager.synThesizer) != nil ){
-            shareManager.synThesizer?.stopSpeaking(at: AVSpeechBoundary.immediate)
-        }
-        if (shareManager.currentWork != nil) {
-            shareManager.currentWork?.cancel()
+        if let syn = shareManager.synThesizer{
+            syn.stopSpeaking(at: AVSpeechBoundary.immediate)
         }
         
+        if let work = shareManager.currentWork{
+            work.cancel()
+        }
     }
     
     open class func isSpeaking() -> Bool{
-        
-        return (shareManager.synThesizer != nil) && (shareManager.synThesizer?.isSpeaking)!
+        guard let syn = shareManager.synThesizer else {
+            return false
+        }
+        return syn.isSpeaking
     }
 }
-
+//MARK: - Speak
 extension TTSpeechManager{
     
     public class func SpeakWithUttrance(uttrance: AVSpeechUtterance,progress: @escaping (String) -> Void,finish:@escaping (Bool) -> Void){
@@ -90,10 +92,31 @@ extension TTSpeechManager{
             }
         }
         shareManager.currentWork = work
+        DispatchQueue.global(qos: .default).async(execute: work)
+    }
+    
+    public class func SpeakAfterWithUttrance( uttrance: AVSpeechUtterance, timeInteger: TimeInterval,progress: @escaping (String) -> Void,finish: @escaping (Bool) -> Void) {
+        
+        let work = DispatchWorkItem {
+            if let syn = shareManager.synThesizer {
+                syn.speak(uttrance)
+                shareManager.finish = finish
+            }else{
+                let syn = AVSpeechSynthesizer()
+                shareManager.synThesizer = syn
+                shareManager.finish = finish
+                shareManager.progress = progress
+                syn.delegate = shareManager
+                syn.speak(uttrance)
+            }
+        }
+        shareManager.currentWork = work
         DispatchQueue.global(qos: .default).asyncAfter(deadline: DispatchTime.now()+timeInteger, execute: work)
     }
+
 }
 
+   //MARK: - AVSpeechSynthesizerDelegate
 extension TTSpeechManager : AVSpeechSynthesizerDelegate{
     
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
@@ -104,10 +127,10 @@ extension TTSpeechManager : AVSpeechSynthesizerDelegate{
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: speechStatus.pause), object: nil)
     }
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        finish?(true)
+        //这里的 end 通知必须在前面，因为end通知发送会播放背景音乐，finish回调闭包内可能会停止播放背景音乐，细节去看闭包TTSpeechFlowManager具体实现
         NotificationCenter.default.post(name: Notification.Name(rawValue: speechStatus.end), object: nil)
+        finish?(true)
     }
-    
     //获取当前utterance的阅读进度
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
         let text = utterance.speechString
