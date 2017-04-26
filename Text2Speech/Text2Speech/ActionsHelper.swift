@@ -44,13 +44,14 @@ extension ActionsHelper{
         }
     }
     
-    func getActionWithId(id : String) -> Dictionary<String, AnyObject>{
+    func getActionWithId(id : NSNumber) -> Dictionary<String, AnyObject>{
         
         var result : Dictionary<String, AnyObject>?
         
         for dic: Dictionary in allActions! {
-            if ((dic["id"] as! NSNumber).stringValue == id ) {
+            if (dic["id"] as! NSNumber == id ) {
                  result = dic
+                 break
             }
         }
         return result!
