@@ -14,7 +14,6 @@ class NBAudioBot: NSObject {
     fileprivate static let shareBot = NBAudioBot()
     override init() {
         super.init()
-        
     }
 
     fileprivate var audioPlayer : AVAudioPlayer?
@@ -55,17 +54,20 @@ extension NBAudioBot{
     public class func contiuePlay(){
         if let player = shareBot.audioPlayer, player.prepareToPlay(){
             player.play()
+            print("player play")
         }
     }
     public class func pasuePlay(){
         if let player = shareBot.audioPlayer , player.isPlaying{
             player.pause()
+            print("player pause")
         }
     }
     
     public class func stopPlay(){
-        if let plyar = shareBot.audioPlayer{
-            plyar.stop()
+        if let player = shareBot.audioPlayer{
+            player.stop()
+            print("player stop")
         }
     }
 }
@@ -75,16 +77,16 @@ extension NBAudioBot{
         
     }
     @objc func notificationBegain(){
-        print("notificationBegain")
+//        print("notificationBegain")
         NBAudioBot.pasuePlay()
     }
     @objc func notificationEnd(){
-        print("notificationEnd")
+//        print("notificationEnd")
         NBAudioBot.contiuePlay()
     }
     
     @objc func notificationExit(){
-        print("notificationExit")
+//        print("notificationExit")
         NBAudioBot.stopPlay()
     }
 }

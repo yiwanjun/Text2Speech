@@ -42,7 +42,7 @@ final public class TTSpeechManager: NSObject {
 extension TTSpeechManager{
     open class func pause(){
         if let syn = shareManager.synThesizer ,syn.isSpeaking{
-            syn.pauseSpeaking(at: AVSpeechBoundary.word)
+            syn.pauseSpeaking(at: AVSpeechBoundary.immediate)
         }
     }
     
@@ -120,12 +120,14 @@ extension TTSpeechManager{
 extension TTSpeechManager : AVSpeechSynthesizerDelegate{
     
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
-        print("speech begain",utterance.speechString)
+        print("||==>speech text: ",utterance.speechString)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: speechStatus.begain), object: nil)
     }
+    
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: speechStatus.pause), object: nil)
     }
+    
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         //这里的 end 通知必须在前面，因为end通知发送会播放背景音乐，finish回调闭包内可能会停止播放背景音乐，细节去看闭包TTSpeechFlowManager具体实现
         NotificationCenter.default.post(name: Notification.Name(rawValue: speechStatus.end), object: nil)

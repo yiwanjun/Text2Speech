@@ -10,67 +10,122 @@ import UIKit
 
 class ItemsGenerator: NSObject {
     var plans:Array<Dictionary<String,Any>>
-    let prepare = "Ready to go"
+    let prepare = "ready to go"
+    let go = "go"
     let startWith = "start with "
     let begain:String = "do the exercise"
     let next:String = "next"
     let half:String = "half the time"
     let rest:String = "take a rest"
     let local:String = "en-US"
-    let finish:String = "congratulations"
-    
+    let seconds:String = " seconds"
+    let congratulations:String = "congratulations"
+
     
     public init?(plan:Array<Dictionary<String,Any>>){
         self.plans = plan
     }
     
-    public func gennerate(finish: @escaping (Dictionary<String, AnyObject>) -> Void) {
+    public func gennerate(finish: @escaping (Array<SpeechAction>) -> Void) {
 
        ActionsHelper.shareHelper.loadJson { (helper) in
-        //ready
-        var actions = Array<Any>()
+        //添加预备开始
+        //actions.time 0表示整套动作完成
+        var actions : Array<ActionAndKey> = Array()
         
         if let first = self.plans.first {
             let action = helper.getActionWithId(id: first["actionId"] as! NSNumber)
             let startWithName = self.startWith.appending(action["name"] as! String)
-            let ready = [self.prepare,startWithName,"3","2","1"]
-            actions.append(ready)
+            
+            let ready : Action = Action(type: SpeechTextElement.ready, time: 10, text: [self.prepare,startWithName,"3","2","1"])
+            actions.append(ActionAndKey(action: ready, key: 0))
         }
-        
-        var i = 0
-        for plan in self.plans{
+        //遍历从今天计划的动作，从json文件中获取到的
+         for i in 0..<self.plans.count{
+            let plan = self.plans[i]
             let actionId = plan["actionId"]
-            let time = plan["time"] as! NSNumber
+            let time = plan["time"] as! Int
             
             let action = helper.getActionWithId(id: actionId! as! NSNumber)
             let unit = action["unit"] as! String
-            var contentArray = Array<Any>()
+            var content: Action
             
             if unit == "s" {
-                contentArray = [self.begain,action["name"] as! String,self.half,"3","2","1",self.next];
-                
+                //计时动作之前加一个强制休息
+                if i != 0{//如果是第一个动作不需要休息
+                    //time = 10000表示一直等待
+                    let rest: Action = Action(type: SpeechTextElement.forceRest, time: 7, text: [self.begain,String(time)+(self.seconds),"3","2","1",self.go])
+                    actions.append(ActionAndKey(action: rest, key: 10+10*i))
+                }
+
+                //计时动作
+                content = Action(type: SpeechTextElement.actionTimer, time: time, text: ["","3","2","1"])
+                actions.append(ActionAndKey(action: content, key: 10 + 10*i + 1))
+
             }else{
-                contentArray = [self.begain,time,action["name"] as! String]
+                //记次动作
+                content = Action(type: SpeechTextElement.actionCount, time: 10000, text: [self.begain,time,action["name"] as! String])
+                actions.append(ActionAndKey(action: content, key: 10 + 10*i))
+                //记次动作的后面加普通的休息
             }
-            actions.append(contentArray)
-            i += 1
+            
+            if i+1 < self.plans.count{
+                //获取下一个动作
+                let next = self.plans[i+1]
+                let actionId = next["actionId"]
+                let action = helper.getActionWithId(id: actionId! as! NSNumber)
+                //当下一个动作不是计时的时候才加普通的休息
+                let rest: Action = Action(type: SpeechTextElement.rest, time: 10, text: [self.rest,self.next,action["name"] as! String])
+                actions.append(ActionAndKey(action: rest, key: 10+10*i+2))
+            }
         }
-        
-//        let dic = self.getItemsWithContent(contentArray: actions)
-//        finish(dic as! Dictionary<String, AnyObject>)
-     
+        //完成所有动作
+        let action = Action(type:SpeechTextElement.end,time:0,text:[self.congratulations])
+        actions.append(ActionAndKey(action: action, key: 9999))
+
+        //按照设置key升序排列，都是数字类型的字符串
+        let result = actions.sorted(by: { (ak0: ActionAndKey, ak1: ActionAndKey) -> Bool in
+            return ak0.key < ak1.key
+        })
+    
+         finish(self.speechsAllTextsWithContent(content: result))
         }
     }
-    
-//    private func speechsTextsWithContent(contentArray: Array<Any>) -> [String:AnyObject]{
-//        
-//    }
-    
 }
 
 extension ItemsGenerator{
+    
+    fileprivate func speechsAllTextsWithContent(content: Array<Any>) -> Array<SpeechAction>{
+        var  speechs = Array<SpeechAction>()
+        
+        for i in 0..<content.count{
+            
+            let ak: ActionAndKey = content[i] as! ActionAndKey
+        
+            let type:String = ak.action.type
+            let time:Int = ak.action.time
+            let text:Array<Any> = ak.action.text
+            switch type {
+            case SpeechTextElement.ready:
+                speechs.append(SpeechAction(ak: ak, speech: readyItemsWithContent(contentArray: text, time: time) as! Dictionary<String, Any>))
+            case SpeechTextElement.actionCount:
+                speechs.append(SpeechAction(ak: ak, speech: countItemsWithContent(contentArray: text, time: time) as! Dictionary<String, Any>))
+            case SpeechTextElement.actionTimer:
+                 speechs.append(SpeechAction(ak: ak, speech: timerItemsWithContent(contentArray: text, time: time) as! Dictionary<String, Any>))
+            case SpeechTextElement.rest:
+                 speechs.append(SpeechAction(ak: ak, speech: restItemsWithContent(contentArray: text, time: time) as! Dictionary<String, Any>))
+            case SpeechTextElement.forceRest:
+                 speechs.append(SpeechAction(ak: ak, speech: forceRestItemsWithContent(contentArray: text, time: time) as! Dictionary<String, Any>))
+            default://end
+                 speechs.append(SpeechAction(ak: ak, speech: endItemsWithContent(contentArray: text, time: time) as! Dictionary<String, Any>))
+            }
+        }
+
+        return speechs
+    }
+    
     //预备开始
-    private func readyItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
+    fileprivate func readyItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
         
         let dic = NSMutableDictionary()
         
@@ -81,12 +136,10 @@ extension ItemsGenerator{
             case 1:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: 2))
             case 2:
-                dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: 4))
-            case 3:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 3))
-            case 4:
+            case 3:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 2 ))
-            case 5:
+            case 4:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 1))
             default: break
                 
@@ -97,7 +150,7 @@ extension ItemsGenerator{
     }
     
     //计次动作
-    private func countItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
+    fileprivate func countItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
         
         let dic = NSMutableDictionary()
         
@@ -117,7 +170,7 @@ extension ItemsGenerator{
     }
     
     //计时动作
-    private func timerItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
+    fileprivate func timerItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
         
         let dic = NSMutableDictionary()
         
@@ -126,16 +179,10 @@ extension ItemsGenerator{
             case 0:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: 0))
             case 1:
-                dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: 2))
-            case 2:
-                dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: 2))
-            case 3:
-                dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time/2))
-            case 4:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 3))
-            case 5:
+            case 2:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 2 ))
-            case 6:
+            case 3:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 1))
             default: break
                 
@@ -146,7 +193,7 @@ extension ItemsGenerator{
     }
     
     //休息
-    private func restItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
+    fileprivate func restItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
         
         let dic = NSMutableDictionary()
         
@@ -166,7 +213,7 @@ extension ItemsGenerator{
     }
     
     //强制休息
-    private func forceRestItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
+    fileprivate func forceRestItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
         
         let dic = NSMutableDictionary()
         
@@ -177,16 +224,12 @@ extension ItemsGenerator{
             case 1:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: 2))
             case 2:
-                dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: 4))
-            case 3:
-                dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 5))
-            case 4:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 4))
-            case 5:
+            case 3:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 3))
-            case 6:
+            case 4:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 2))
-            case 7:
+            case 5:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: time - 1))
             default: break
                 
@@ -197,7 +240,7 @@ extension ItemsGenerator{
     }
     
     //结束
-    private func endItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
+    fileprivate func endItemsWithContent(contentArray: Array<Any>,time: Int) -> NSDictionary {
         
         let dic = NSMutableDictionary()
         
@@ -205,10 +248,6 @@ extension ItemsGenerator{
             switch i {
             case 0:
                 dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: 0))
-            case 1:
-                dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: 2))
-            case 2:
-                dic.addEntries(from: speechTextWithAction(content: contentArray[i], index: i, time: 6))
             default: break
                 
             }
@@ -216,9 +255,9 @@ extension ItemsGenerator{
         return dic
     }
     
-    private func speechTextWithAction(content: Any,index: Int,time: Int) -> [String:AnyObject]{
+    fileprivate func speechTextWithAction(content: Any,index: Int,time: Int) -> [String:AnyObject]{
         
-        let contentDic = ["local":self.local,"content":content,"time":time - 1] as NSDictionary;
+        let contentDic = ["local":self.local,"content":content,"time":time] as NSDictionary;
         return [String(index) : contentDic]
     }
 }

@@ -9,47 +9,68 @@
 import UIKit
 import Foundation
 import Dispatch
-class UinitBySecondViewController: UIViewController {
+
+class UinitBySecondViewController: UIViewController,ActionsManagerDelegate {
     @IBOutlet weak var timeLabel: UILabel!
   
     var timer = Timer()
-    var countor = 0
-    var flowManager = TTSpeechFlowManager()
+    var mycountor = 0
+    var actionsManager: ActionsManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let actionsEx = [["actionId":0,"time":8],["actionId":2,"time":14],["actionId":1,"time":6],["actionId":3,"time":10]]
+        let actionsEx = [["actionId":2,"time":14],["actionId":1,"time":6],["actionId":3,"time":10]]
         
-        
-        ItemsGenerator(plan: actionsEx)?.gennerate(finish: {[weak self] (dics)  in
-            
-             self?.flowManager.loadItemsWithDictionary(dic: dics, time: 10)
+        ItemsGenerator(plan: actionsEx)?.gennerate(finish: {[weak self] (speechs)  in
+            self?.actionsManager = ActionsManager(actions: speechs)
+            self?.actionsManager?.delegate = self
         })
         
-     
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        actionsManager?.stop()
+    }
     
     @IBAction func begain(_ sender: Any) {
+        actionsManager?.begain()
+    }
+    
+    @IBAction func finishOne(_ sender: Any) {
+        actionsManager?.finishOne()
         
-        flowManager.begain()
+    }
+    @IBAction func playNext(_ sender: Any) {
         
+        actionsManager?.next()
+    }
+    
+    @IBAction func pause(_ sender: Any) {
+        actionsManager?.pause()
+    }
+    
+    @IBAction func contiue(_ sender: Any) {
+        actionsManager?.contiue()
+    }
+    
+    
+       
+    func actionsManagerTimerReadyUpdate(countor: NSInteger) {
+        print("预备 ", countor)
+        timeLabel.text = "预备 " + String( countor)
+    }
+    
+    func actionsManagerTimerCountIntrodctionUpdate(countor: NSInteger) {
+        timeLabel.text = "计时动作预备开始 " + String(countor)
+    }
+    
+    func actionsManagerTimerCountUpdate(countor: NSInteger) {
+        timeLabel.text = "计时动作 " + String(countor)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+

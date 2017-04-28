@@ -15,9 +15,12 @@ struct FlowItem {
     public var index : NSInteger
     public var content : String?
     
-    public init?(utt: AVSpeechUtterance,delay: NSNumber,index: NSInteger){
+    public init?(utt: AVSpeechUtterance,delay: Int,index: NSInteger){
         self.utt = utt
         self.delay = TimeInterval(delay)
         self.index = index
     }
+    
+   
+
 }

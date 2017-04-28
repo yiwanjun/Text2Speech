@@ -26,6 +26,8 @@
 		5A3B5A9C1EA61D39006294E9 /* MixAudioAndSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3B5A9B1EA61D39006294E9 /* MixAudioAndSpeechViewController.swift */; };
 		5A3B5AA01EA62370006294E9 /* SpeechFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3B5A9F1EA62370006294E9 /* SpeechFlowViewController.swift */; };
 		5A3B5AA21EA6291A006294E9 /* SpeechItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3B5AA11EA6291A006294E9 /* SpeechItem.swift */; };
+		5A41E23D1EB1DAAB00BEE891 /* ActionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A41E23C1EB1DAAB00BEE891 /* ActionData.swift */; };
+		5A41E23F1EB33FE100BEE891 /* PauseableTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A41E23E1EB33FE100BEE891 /* PauseableTimer.swift */; };
 		5A71F6781EAEF8D20011F02E /* UinitBySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A71F6771EAEF8D20011F02E /* UinitBySecondViewController.swift */; };
 		5A71F67A1EAF006D0011F02E /* ItemsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A71F6791EAF006D0011F02E /* ItemsGenerator.swift */; };
 		5A8383061EAF16A40099D415 /* intro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5A8382DC1EAF16A40099D415 /* intro.xml */; };
@@ -109,6 +111,8 @@
 		5A3B5A9B1EA61D39006294E9 /* MixAudioAndSpeechViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixAudioAndSpeechViewController.swift; sourceTree = "<group>"; };
 		5A3B5A9F1EA62370006294E9 /* SpeechFlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechFlowViewController.swift; sourceTree = "<group>"; };
 		5A3B5AA11EA6291A006294E9 /* SpeechItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechItem.swift; sourceTree = "<group>"; };
+		5A41E23C1EB1DAAB00BEE891 /* ActionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionData.swift; sourceTree = "<group>"; };
+		5A41E23E1EB33FE100BEE891 /* PauseableTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseableTimer.swift; sourceTree = "<group>"; };
 		5A71F6771EAEF8D20011F02E /* UinitBySecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UinitBySecondViewController.swift; sourceTree = "<group>"; };
 		5A71F6791EAF006D0011F02E /* ItemsGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsGenerator.swift; sourceTree = "<group>"; };
 		5A8382DC1EAF16A40099D415 /* intro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = intro.xml; sourceTree = "<group>"; };
@@ -228,10 +232,12 @@
 		5A42E3081EA88917008C693E /* TTSpeechSyntheKit */ = {
 			isa = PBXGroup;
 			children = (
+				5A41E23E1EB33FE100BEE891 /* PauseableTimer.swift */,
 				5A314EA21EA70F2F00556121 /* FlowItem.swift */,
+				5A41E23C1EB1DAAB00BEE891 /* ActionData.swift */,
+				5A71F6791EAF006D0011F02E /* ItemsGenerator.swift */,
 				5A8383331EAF21510099D415 /* ActionsHelper.swift */,
 				5A3375481EB0C19B00EF025A /* ActionsManager.swift */,
-				5A71F6791EAF006D0011F02E /* ItemsGenerator.swift */,
 				5A314EA41EA731A200556121 /* TTSpeechFlowManager.swift */,
 				5A3B5A841EA5B518006294E9 /* TTSpeechManager.swift */,
 				5A3B5A991EA611E7006294E9 /* NBAudioBot.swift */,
@@ -537,11 +543,13 @@
 				5AB447F51EB03CD2004EAD17 /* SwiftyJSON.swift in Sources */,
 				5A3B5AA21EA6291A006294E9 /* SpeechItem.swift in Sources */,
 				5A3B5A961EA5FBED006294E9 /* InternationalViewController.swift in Sources */,
+				5A41E23D1EB1DAAB00BEE891 /* ActionData.swift in Sources */,
 				5A71F6781EAEF8D20011F02E /* UinitBySecondViewController.swift in Sources */,
 				5A397F101EA4A96D00F2DFF3 /* AppDelegate.swift in Sources */,
 				5A3B5A851EA5B518006294E9 /* TTSpeechManager.swift in Sources */,
 				5A3B5A891EA5E7B3006294E9 /* MonitorViewController.swift in Sources */,
 				5A3B5A9C1EA61D39006294E9 /* MixAudioAndSpeechViewController.swift in Sources */,
+				5A41E23F1EB33FE100BEE891 /* PauseableTimer.swift in Sources */,
 				5A3375491EB0C19B00EF025A /* ActionsManager.swift in Sources */,
 				5A3B5A9A1EA611E7006294E9 /* NBAudioBot.swift in Sources */,
 				5A8383341EAF21510099D415 /* ActionsHelper.swift in Sources */,
