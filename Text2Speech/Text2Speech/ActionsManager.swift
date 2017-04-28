@@ -100,7 +100,7 @@ class ActionsManager: NSObject {
     }
     
     public func contiue(){
-//        playStutas = PlayStutas.playing
+        playStutas = PlayStutas.playing
         flowManager.flowContinue()
         continueBackgroudMusic()
     }
@@ -115,7 +115,7 @@ class ActionsManager: NSObject {
         case SpeechTextElement.actionTimer:
             play()
         default:
-            print("出错了")
+            print("do nothing")
         }
     }
     
@@ -129,7 +129,7 @@ class ActionsManager: NSObject {
         case SpeechTextElement.actionTimer:
             delegate?.actionsManagerTimerCountUpdate(countor: second)
         default:
-            print("出错了")
+            print("do nothing")
         }
     }
 }

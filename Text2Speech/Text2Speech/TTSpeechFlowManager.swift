@@ -99,13 +99,11 @@ extension TTSpeechFlowManager{
     public func pause(){
         TTSpeechManager.pause()
         timer?.pause()
-//        timer.fireDate.addTimeInterval(Date.distantFuture)
     }
     
     public func flowContinue(){
         TTSpeechManager.contiue()
         timer?.resume()
-//        timer.fireDate.addTimeInterval(Date.distantPast)
     }
     
     @objc func timerAction(){

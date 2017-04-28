@@ -20,7 +20,4 @@ struct FlowItem {
         self.delay = TimeInterval(delay)
         self.index = index
     }
-    
-   
-
 }

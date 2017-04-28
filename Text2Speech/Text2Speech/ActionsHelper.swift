@@ -13,12 +13,11 @@ final public class ActionsHelper: NSObject {
     
     open static let shareHelper = ActionsHelper()
     
+    var allActions : Array<Dictionary<String, AnyObject>>?
+    
     private override init() {
         super.init()
     }
-    
-    var allActions : Array<Dictionary<String, AnyObject>>?
-
 }
 
 extension ActionsHelper{
@@ -27,7 +26,6 @@ extension ActionsHelper{
             finish(self)
             return
         }
-        
         DispatchQueue.global(qos: .default).async { 
             let path =  Bundle.main.path(forResource: "td_allactions", ofType: "json")
             let data =  NSData(contentsOfFile: path!)

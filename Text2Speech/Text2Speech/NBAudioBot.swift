@@ -73,20 +73,14 @@ extension NBAudioBot{
 }
 
 extension NBAudioBot{
-    @objc func notificationPause(){
-        
-    }
     @objc func notificationBegain(){
-//        print("notificationBegain")
         NBAudioBot.pasuePlay()
     }
     @objc func notificationEnd(){
-//        print("notificationEnd")
         NBAudioBot.contiuePlay()
     }
     
     @objc func notificationExit(){
-//        print("notificationExit")
         NBAudioBot.stopPlay()
     }
 }

@@ -25,7 +25,6 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate {
             self?.actionsManager = ActionsManager(actions: speechs)
             self?.actionsManager?.delegate = self
         })
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,8 +51,6 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate {
     @IBAction func contiue(_ sender: Any) {
         actionsManager?.contiue()
     }
-    
-    
        
     func actionsManagerTimerReadyUpdate(countor: NSInteger) {
         print("预备 ", countor)

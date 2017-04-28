@@ -20,7 +20,6 @@ class ItemsGenerator: NSObject {
     let local:String = "en-US"
     let seconds:String = " seconds"
     let congratulations:String = "congratulations"
-
     
     public init?(plan:Array<Dictionary<String,Any>>){
         self.plans = plan
@@ -120,7 +119,6 @@ extension ItemsGenerator{
                  speechs.append(SpeechAction(ak: ak, speech: endItemsWithContent(contentArray: text, time: time) as! Dictionary<String, Any>))
             }
         }
-
         return speechs
     }
     
@@ -145,7 +143,6 @@ extension ItemsGenerator{
                 
             }
         }
-        
         return dic
     }
     
@@ -188,7 +185,6 @@ extension ItemsGenerator{
                 
             }
         }
-        
         return dic
     }
     
@@ -235,7 +231,6 @@ extension ItemsGenerator{
                 
             }
         }
-        
         return dic
     }
     
@@ -256,7 +251,6 @@ extension ItemsGenerator{
     }
     
     fileprivate func speechTextWithAction(content: Any,index: Int,time: Int) -> [String:AnyObject]{
-        
         let contentDic = ["local":self.local,"content":content,"time":time] as NSDictionary;
         return [String(index) : contentDic]
     }
