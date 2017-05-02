@@ -10,12 +10,15 @@ import UIKit
 import Foundation
 import Dispatch
 
-class UinitBySecondViewController: UIViewController,ActionsManagerDelegate {
+class UinitBySecondViewController: UIViewController,ActionsManagerDelegate,ActionsManagerDataSource {
     @IBOutlet weak var timeLabel: UILabel!
   
+    @IBOutlet weak var mixButton: UIButton!
+    
     var timer = Timer()
     var mycountor = 0
     var actionsManager: ActionsManager?
+    var mySpeechAction : SpeechAction?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,7 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate {
         ItemsGenerator(plan: actionsEx)?.gennerate(finish: {[weak self] (speechs)  in
             self?.actionsManager = ActionsManager(actions: speechs)
             self?.actionsManager?.delegate = self
+            self?.actionsManager?.datasource = self
         })
     }
     
@@ -51,7 +55,41 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate {
     @IBAction func contiue(_ sender: Any) {
         actionsManager?.contiue()
     }
-       
+    
+
+    @IBAction func mixButtonAction(_ sender: UIButton) {
+        
+  
+        guard let sa = mySpeechAction else {
+            actionsManager?.begain()
+            return
+        }
+        
+        switch sa.ak.action.type {
+        case SpeechTextElement.ready:
+            playNext(sender)
+        case SpeechTextElement.actionCount:
+            finishOne(sender)
+        case SpeechTextElement.actionTimer:
+            if sender.isSelected == true{
+                contiue(sender)
+                sender.titleLabel?.text = "播放中"
+                sender.isSelected = false
+            }else{
+                pause(sender)
+                sender.titleLabel?.text = "暂停中"
+                sender.isSelected = true
+            }
+        case SpeechTextElement.rest:
+            playNext(sender)
+        case SpeechTextElement.forceRest:
+            playNext(sender)
+        default:
+            actionsManager?.begain()
+        }
+    }
+    
+    
     func actionsManagerTimerReadyUpdate(countor: NSInteger) {
         print("预备 ", countor)
         timeLabel.text = "预备 " + String( countor)
@@ -63,6 +101,11 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate {
     
     func actionsManagerTimerCountUpdate(countor: NSInteger) {
         timeLabel.text = "计时动作 " + String(countor)
+    }
+    
+    func actionManagerCurrentSpeechAction(speechAction: SpeechAction) {
+        mySpeechAction = speechAction
+        print(speechAction)
     }
     
     override func didReceiveMemoryWarning() {

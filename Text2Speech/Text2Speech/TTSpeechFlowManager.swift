@@ -62,11 +62,11 @@ extension TTSpeechFlowManager{
             let flowItem = FlowItem(utt: uttrance, delay: delay, index: i)
             self.itmes.add(flowItem!)
         }
-        
-        
     }
     
     private func loadFirstItem() -> FlowItem{
+        assert(itmes.count > 0, "初始化异常或者已经释放")
+        
         let first = self.itmes.firstObject as! FlowItem
         indicator += 1
         return first
@@ -81,18 +81,20 @@ extension TTSpeechFlowManager{
         return item
     }
     public func begain(){
-        if TTSpeechManager.isSpeaking(){
-            return
-        }
+        
+        TTSpeechManager.stop()
+        timer?.invalidate()
+        
+        assert(itmes.count > 0, "初始化数据错误,可能是操作过于频繁")
+        
         timer = PauseableTimer(timer: Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true))
 
     }
     
     public func stop(){
         TTSpeechManager.stop()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: TTSpeechManager.speechStatus.exit), object: nil)
+//         NotificationCenter.default.post(name: NSNotification.Name(rawValue: TTSpeechManager.speechStatus.exit), object: nil)
         timer?.invalidate()
-        
         resetData()
     }
     
@@ -107,7 +109,11 @@ extension TTSpeechFlowManager{
     }
     
     @objc func timerAction(){
-
+        print("timerAction ",indicator)
+        if itmes.count == 0{
+            //已经退出,而且重置所有数据了
+            return
+        }
         if indicator == 0{
             speakWithUttrance(item: loadFirstItem())
             NotificationCenter.default.post(name: NSNotification.Name(rawValue:TTSpeechManager.timerSecondUpdate), object: maxTime! - countor)
@@ -139,17 +145,14 @@ extension TTSpeechFlowManager{
         TTSpeechManager.SpeakWithUttrance(uttrance: item.utt,timeInteger: item.delay, progress: {(progress) in
 //            print(progress)
         }, finish: {[weak self]  finish  in
-            print("countor\(String(describing: self?.countor))")
+            print("countor : \(String(describing: self?.countor))")
             if let countor = self?.countor{
                 if countor == (self?.maxTime)! - 1{//到达最大时间时退出
                     self?.resetData()
-                    self?.postExitNotification()
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: TTSpeechManager.speechStatus.exit), object: nil)
                 }
             }
         })
-    }
-    private  func postExitNotification(){
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: TTSpeechManager.speechStatus.exit), object: nil)
     }
     
     private func resetData(){

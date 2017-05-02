@@ -15,7 +15,7 @@ class NBAudioBot: NSObject {
     override init() {
         super.init()
     }
-
+    fileprivate var isExit = false
     fileprivate var audioPlayer : AVAudioPlayer?
 }
 
@@ -52,9 +52,12 @@ extension NBAudioBot{
         }
     }
     public class func contiuePlay(){
+        if shareBot.isExit == true{
+            return
+        }
         if let player = shareBot.audioPlayer, player.prepareToPlay(){
             player.play()
-            print("player play")
+            print("player contiue play")
         }
     }
     public class func pasuePlay(){
@@ -70,6 +73,10 @@ extension NBAudioBot{
             print("player stop")
         }
     }
+    public class func exitPlay(){
+        stopPlay()
+        shareBot.isExit = true
+    }
 }
 
 extension NBAudioBot{
@@ -79,7 +86,6 @@ extension NBAudioBot{
     @objc func notificationEnd(){
         NBAudioBot.contiuePlay()
     }
-    
     @objc func notificationExit(){
         NBAudioBot.stopPlay()
     }

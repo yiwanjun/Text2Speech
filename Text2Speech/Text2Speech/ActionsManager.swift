@@ -14,6 +14,10 @@ protocol ActionsManagerDelegate : NSObjectProtocol {
     func actionsManagerTimerCountUpdate(countor: NSInteger)
 }
 
+protocol ActionsManagerDataSource : NSObjectProtocol{
+    func actionManagerCurrentSpeechAction(speechAction: SpeechAction)
+}
+
 enum PlayStutas {
     case ready
     case pause
@@ -22,17 +26,19 @@ enum PlayStutas {
 
 class ActionsManager: NSObject {
 
-    private var speechStaus: String
+    fileprivate var speechStaus: String
     
     fileprivate var playStutas: PlayStutas
     
     public var actions: Array<SpeechAction>
     
-    private var currentSpeechIndex:Int = 0
+    fileprivate var currentSpeechIndex:Int = 0
     
-    private var flowManager = TTSpeechFlowManager()
+    fileprivate var flowManager = TTSpeechFlowManager()
     
     weak var delegate : ActionsManagerDelegate?
+    
+    weak var datasource : ActionsManagerDataSource?
     
     public init?(actions: Array<SpeechAction>) {
         self.actions = actions
@@ -43,16 +49,12 @@ class ActionsManager: NSObject {
     public func begain(){
         
         assert(currentSpeechIndex <= actions.count, "数组为空或者越界")
-        
         NotificationCenter.default.addObserver(self, selector: #selector(notificationExit), name: Notification.Name(rawValue:TTSpeechManager.speechStatus.exit), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(speechFlowManagerUpdate), name: NSNotification.Name(rawValue: TTSpeechManager.timerSecondUpdate), object: nil)
         
         self.playBackgroudAudio()
         
-        let sa = actions[currentSpeechIndex]
-        speechStaus = sa.ak.action.type
-        flowManager.loadItemsWithDictionary(dic: sa.speech, time: sa.ak.action.time)
-        flowManager.begain()
+        playCommon()
     }
     
     public func next(){
@@ -60,7 +62,7 @@ class ActionsManager: NSObject {
         switch speechStaus {
         case SpeechTextElement.rest:
             play()
-        case SpeechTextElement.forceRest:
+        case SpeechTextElement.ready:
             play()
         default:
             print("出错了")
@@ -70,10 +72,7 @@ class ActionsManager: NSObject {
     private func play()  {
         playStutas = PlayStutas.playing
         currentSpeechIndex += 1
-        let sa = actions[currentSpeechIndex]
-        speechStaus = sa.ak.action.type
-        self.flowManager.loadItemsWithDictionary(dic: sa.speech, time: sa.ak.action.time)
-        flowManager.begain()
+        playCommon()
     }
 
     public func finishOne(){
@@ -136,6 +135,18 @@ class ActionsManager: NSObject {
 
 extension ActionsManager{
     
+    fileprivate func playCommon(){
+        let sa = actions[currentSpeechIndex]
+        speechStaus = sa.ak.action.type
+        self.flowManager.loadItemsWithDictionary(dic: sa.speech, time: sa.ak.action.time)
+        flowManager.begain()
+        
+        datasource?.actionManagerCurrentSpeechAction(speechAction: sa)
+    }
+}
+
+extension ActionsManager{
+    
     fileprivate func playBackgroudAudio()  {
         let path = Bundle.main.path(forResource: "BackGroundMusic", ofType: "mp3")
         do {
@@ -148,7 +159,7 @@ extension ActionsManager{
     }
     
     fileprivate func stopBackgroudMusic() {
-        NBAudioBot.stopPlay()
+        NBAudioBot.exitPlay()
     }
     
     fileprivate func pauseBackgroufMusic(){

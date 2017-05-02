@@ -219,11 +219,20 @@
                                     <action selector="contiue:" destination="D4R-0r-Wtr" eventType="touchUpInside" id="yez-58-mKf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGx-Fd-kkW">
+                                <rect key="frame" x="58" y="341" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="继续"/>
+                                <connections>
+                                    <action selector="mixButtonAction:" destination="D4R-0r-Wtr" eventType="touchUpInside" id="TRQ-nS-2GS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Gyq-Ep-CVD"/>
                     <connections>
+                        <outlet property="mixButton" destination="cGx-Fd-kkW" id="SaA-4f-VIM"/>
                         <outlet property="timeLabel" destination="wOh-IY-zNJ" id="6mh-OF-acl"/>
                     </connections>
                 </viewController>

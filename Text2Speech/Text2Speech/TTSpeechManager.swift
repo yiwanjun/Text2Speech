@@ -53,13 +53,16 @@ extension TTSpeechManager{
     }
     
     open class func stop(){
-        if let syn = shareManager.synThesizer{
-            syn.stopSpeaking(at: AVSpeechBoundary.immediate)
-        }
         
         if let work = shareManager.currentWork{
             work.cancel()
         }
+        
+        if let syn = shareManager.synThesizer{
+            syn.stopSpeaking(at: AVSpeechBoundary.immediate)
+        }
+        
+      
     }
     
     open class func isSpeaking() -> Bool{
@@ -129,7 +132,7 @@ extension TTSpeechManager : AVSpeechSynthesizerDelegate{
     }
     
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        //这里的 end 通知必须在前面，因为end通知发送会播放背景音乐，finish回调闭包内可能会停止播放背景音乐，细节去看闭包TTSpeechFlowManager具体实现
+         //这里的 end 通知必须在前面，因为end通知发送会播放背景音乐，finish回调闭包内可能会停止播放背景音乐，细节去看闭包TTSpeechFlowManager具体实现
         NotificationCenter.default.post(name: Notification.Name(rawValue: speechStatus.end), object: nil)
         finish?(true)
     }
