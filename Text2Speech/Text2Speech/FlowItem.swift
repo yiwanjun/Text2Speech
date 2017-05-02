@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 struct FlowItem {
-    
     public var utt : AVSpeechUtterance
     public var delay : TimeInterval
     public var index : NSInteger
