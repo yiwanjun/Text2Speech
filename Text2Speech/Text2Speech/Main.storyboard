@@ -241,6 +241,51 @@
             <point key="canvasLocation" x="-1692" y="-1122.1889055472266"/>
         </scene>
         <!--Navigation Controller-->
+        <scene sceneID="Okw-gG-cOp">
+            <objects>
+                <navigationController id="fWj-p1-Hq3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pRN-lN-W5J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fn1-I1-apX" kind="relationship" relationship="rootViewController" id="mjV-kX-O5s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVS-sb-HVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1050" y="-1122"/>
+        </scene>
+        <!--Double Audio View Controller-->
+        <scene sceneID="PgJ-T8-tQQ">
+            <objects>
+                <viewController storyboardIdentifier="DoubleAudioViewController" id="fn1-I1-apX" customClass="DoubleAudioViewController" customModule="Text2Speech" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eO7-f9-xeg"/>
+                        <viewControllerLayoutGuide type="bottom" id="kaY-e5-jp5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dfg-v8-5U3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oje-jB-1wW">
+                                <rect key="frame" x="127" y="277" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="开始"/>
+                                <connections>
+                                    <action selector="play:" destination="fn1-I1-apX" eventType="touchUpInside" id="2sB-zn-Zwy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KNc-Jd-kuP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AGr-tS-J5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-343.19999999999999" y="-1119.4902548725638"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="WSg-iV-6Bd">
             <objects>
                 <navigationController id="0PH-qF-I7f" sceneMemberID="viewController">

@@ -25,7 +25,7 @@ class MonitorViewController: UIViewController {
             let uttrance = AVSpeechUtterance.init(string: content)
             uttrance.rate *= 0.7
             uttrance.voice = avVoice
-            TTSpeechManager.SpeakWithUttrance(uttrance: uttrance, progress: { (progress) in
+            TTSpeechManager.speakWithUttrance(uttrance: uttrance, progress: { (progress) in
                 self.currentTextLabel.text = progress
             }, finish: { (isFinish) in
                 print("speak end")

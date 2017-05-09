@@ -32,6 +32,10 @@ class ViewController: UITableViewController {
         [
             "name":"根据actionId 和 time 生成一个可以的FlowItem",
             "identifier":"UinitBySecondViewController"
+        ],
+        [
+            "name":"背景音乐和滴滴声音混合",
+            "identifier":"DoubleAudioViewController"
         ]
     
     ]

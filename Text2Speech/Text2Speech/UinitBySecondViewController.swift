@@ -22,7 +22,7 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate,Actio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let actionsEx = [["actionId":2,"time":14],["actionId":1,"time":6],["actionId":3,"time":10]]
+        let actionsEx = [["actionId":1,"time":6],["actionId":3,"time":10]]
         
         ItemsGenerator(plan: actionsEx)?.gennerate(finish: {[weak self] (speechs)  in
             self?.actionsManager = ActionsManager(actions: speechs)
@@ -36,7 +36,7 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate,Actio
     }
     
     @IBAction func begain(_ sender: Any) {
-        actionsManager?.begain()
+        actionsManager?.begin()
     }
     
     @IBAction func finishOne(_ sender: Any) {
@@ -61,7 +61,7 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate,Actio
         
   
         guard let sa = mySpeechAction else {
-            actionsManager?.begain()
+            actionsManager?.begin()
             return
         }
         
@@ -73,10 +73,11 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate,Actio
         case SpeechTextElement.actionTimer:
             if sender.isSelected == true{
                 contiue(sender)
-                sender.titleLabel?.text = "播放中"
+                sender.setTitle("播放中", for: UIControlState.selected)
                 sender.isSelected = false
             }else{
                 pause(sender)
+                sender.setTitle("播放中", for: UIControlState.normal)
                 sender.titleLabel?.text = "暂停中"
                 sender.isSelected = true
             }
@@ -85,7 +86,7 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate,Actio
         case SpeechTextElement.forceRest:
             playNext(sender)
         default:
-            actionsManager?.begain()
+            actionsManager?.begin()
         }
     }
     

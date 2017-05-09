@@ -39,7 +39,7 @@ class MixAudioAndSpeechViewController: UIViewController {
     
     @IBAction func playMusic(_ sender: Any) {
         playerAudio()
-        self.flowManager.begain()
+        self.flowManager.begin()
     }
     
     @IBAction func pauseMusic(_ sender: Any) {

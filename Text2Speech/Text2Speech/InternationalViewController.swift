@@ -30,7 +30,7 @@ class InternationalViewController: UIViewController {
                 uttrance.rate *= 1
                 uttrance.voice = avVoice
 
-                TTSpeechManager.SpeakWithUttrance(uttrance: uttrance, progress: {(progress) in
+                TTSpeechManager.speakWithUttrance(uttrance: uttrance, progress: {(progress) in
                     print(progress)
                 }, finish: { (finish) in
                     print("end \(dicS)",dicS)

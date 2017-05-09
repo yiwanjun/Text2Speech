@@ -29,7 +29,7 @@ class SpeechFlowViewController: UIViewController {
     }
     
     @IBAction func speak(_ sender: Any) {
-        self.flowManager.begain()
+        self.flowManager.begin()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
