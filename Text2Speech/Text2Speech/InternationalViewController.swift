@@ -31,9 +31,9 @@ class InternationalViewController: UIViewController {
                 uttrance.voice = avVoice
 
                 TTSpeechManager.speakWithUttrance(uttrance: uttrance, progress: {(progress) in
-                    print(progress)
+                    DPrint(progress)
                 }, finish: { (finish) in
-                    print("end \(dicS)",dicS)
+                    DPrint("end \(dicS)",dicS)
                 })
                 DispatchQueue.main.async {
                     self.languageLabel.text = dicS["local"] as? String

@@ -69,7 +69,7 @@ class ActionsManager: NSObject {
         case SpeechTextElement.ready:
             play()
         default:
-            print("出错了")
+            DPrint("出错了")
         }
     }
     
@@ -87,7 +87,7 @@ class ActionsManager: NSObject {
         case SpeechTextElement.actionTimer:
             play()
         default:
-            print("出错了")
+            DPrint("出错了")
         }
     }
     
@@ -118,7 +118,7 @@ class ActionsManager: NSObject {
         case SpeechTextElement.actionTimer:
             play()
         default:
-            print("do nothing")
+            DPrint("do nothing")
         }
     }
     
@@ -133,7 +133,7 @@ class ActionsManager: NSObject {
             delegate?.actionsManagerTimerCountUpdate(countor: second)
             playDaDaAudio()
         default:
-            print("do nothing")
+            DPrint("do nothing")
         }
     }
 }
@@ -164,10 +164,10 @@ extension ActionsManager{
         }
         do {
             try NBAudioBot.PlayerWithURL(URL(fileURLWithPath: path), finish: { (sucess) in
-                print("播放背景音乐成功")
+                DPrint("播放背景音乐成功")
             })
         } catch  {
-            print(error.localizedDescription)
+            DPrint(error.localizedDescription)
         }
     }
     
@@ -178,20 +178,20 @@ extension ActionsManager{
         do {
             try NBAudioBot.playDing(withURL: URL(fileURLWithPath: path), loops: 0)
         } catch  {
-            print(error.localizedDescription)
+            DPrint(error.localizedDescription)
         }
     }
     
     //计时运动的时候卡妙声音
     fileprivate func playDaDaAudio(){
         print("playDaDaAudio sound/td_di")
-        guard let path = soundPath(withSource: "sound/ding", type: "wav") else {
+        guard let path = soundPath(withSource: "sound/Etimer", type: "mp3") else {
             return
         }
         do {
             try NBAudioBot.playDing(withURL: URL(fileURLWithPath: path), loops: 0)
         } catch  {
-            print(error.localizedDescription)
+            DPrint(error.localizedDescription)
         }
     }
     

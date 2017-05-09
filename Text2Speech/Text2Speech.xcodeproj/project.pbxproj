@@ -19,6 +19,7 @@
 		5A1D554C1EC0146E00FBA874 /* TTSpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D55431EC0146E00FBA874 /* TTSpeechManager.swift */; };
 		5A1D6A711EC156C300AD8794 /* SportResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D6A701EC156C300AD8794 /* SportResource.swift */; };
 		5A1D6A731EC157B700AD8794 /* SportResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D6A721EC157B700AD8794 /* SportResource.bundle */; };
+		5A1D6A751EC191C100AD8794 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D6A741EC191C100AD8794 /* Common.swift */; };
 		5A397F101EA4A96D00F2DFF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A397F0F1EA4A96D00F2DFF3 /* AppDelegate.swift */; };
 		5A397F121EA4A96D00F2DFF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A397F111EA4A96D00F2DFF3 /* ViewController.swift */; };
 		5A397F171EA4A96D00F2DFF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A397F161EA4A96D00F2DFF3 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		5A1D55431EC0146E00FBA874 /* TTSpeechManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTSpeechManager.swift; sourceTree = "<group>"; };
 		5A1D6A701EC156C300AD8794 /* SportResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportResource.swift; sourceTree = "<group>"; };
 		5A1D6A721EC157B700AD8794 /* SportResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SportResource.bundle; sourceTree = "<group>"; };
+		5A1D6A741EC191C100AD8794 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		5A397F0C1EA4A96D00F2DFF3 /* Text2Speech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Text2Speech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A397F0F1EA4A96D00F2DFF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A397F111EA4A96D00F2DFF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1D6A701EC156C300AD8794 /* SportResource.swift */,
+				5A1D6A741EC191C100AD8794 /* Common.swift */,
 			);
 			name = Vender;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				5A397F121EA4A96D00F2DFF3 /* ViewController.swift in Sources */,
 				5A1D554A1EC0146E00FBA874 /* PauseableTimer.swift in Sources */,
 				5A3B5AA21EA6291A006294E9 /* SpeechItem.swift in Sources */,
+				5A1D6A751EC191C100AD8794 /* Common.swift in Sources */,
 				5A3B5A961EA5FBED006294E9 /* InternationalViewController.swift in Sources */,
 				5A1D55471EC0146E00FBA874 /* FlowItem.swift in Sources */,
 				5A71F6781EAEF8D20011F02E /* UinitBySecondViewController.swift in Sources */,
@@ -614,6 +618,10 @@
 				INFOPLIST_FILE = Text2Speech/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-D",
+					DEBUG,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.newborntown.inc.Text2Speech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Text2Speech/Text2Speech-Bridging-Header.h";

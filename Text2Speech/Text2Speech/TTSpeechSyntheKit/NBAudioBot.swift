@@ -57,20 +57,20 @@ extension NBAudioBot{
         }
         if let player = shareBot.audioPlayer, player.prepareToPlay(){
             player.play()
-            print("player contiue play")
+            DPrint("player contiue play")
         }
     }
     public class func pasuePlay(){
         if let player = shareBot.audioPlayer , player.isPlaying{
             player.pause()
-            print("player pause")
+            DPrint("player pause")
         }
     }
     
     public class func stopPlay(){
         if let player = shareBot.audioPlayer{
             player.stop()
-            print("player stop")
+            DPrint("player stop")
         }
     }
     public class func exitPlay(){
@@ -97,6 +97,15 @@ extension NBAudioBot{
                 throw error
             }
         }
+    }
+    
+    open class func isMute( isMute: Bool){
+        if isMute {
+            shareBot.audioPlayer?.volume = 0.0
+        }else{
+            shareBot.audioPlayer?.volume = 1.0
+        }
+        
     }
 }
 

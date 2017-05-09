@@ -119,7 +119,7 @@ extension TTSpeechManager{
 extension TTSpeechManager : AVSpeechSynthesizerDelegate{
     
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
-        print("||==>speech text: ",utterance.speechString)
+        DPrint("||==>speech text: ",utterance.speechString)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: speechStatus.begin), object: nil)
     }
     

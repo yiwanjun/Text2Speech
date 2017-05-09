@@ -105,7 +105,7 @@ extension TTSpeechFlowManager{
     public func speakWithUttrance(item: FlowItem) {
         
         TTSpeechManager.speakWithUttrance(uttrance: item.utt,timeInteger: item.delay, progress: {(progress) in
-            //            print(progress)
+            //            DPrint(progress)
         }, finish: {[weak self]  finish  in
             DPrint("countor : \(String(describing: self?.countor))")
             if let countor = self?.countor{

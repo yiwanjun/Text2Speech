@@ -79,7 +79,7 @@ class ItemsGenerator: NSObject {
                 }
             }
             //完成所有动作
-            let action = Action(type:SpeechTextElement.end,time:0,text:[self.congratulations])
+            let action = Action(type:SpeechTextElement.end,time:2,text:[self.congratulations])
             actions.append(ActionAndKey(action: action,actionJsonObject: nil, key: 9999))
             
             //按照设置key升序排列，都是数字类型的字符串

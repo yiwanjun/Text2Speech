@@ -92,7 +92,7 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate,Actio
     
     
     func actionsManagerTimerReadyUpdate(countor: NSInteger) {
-        print("预备 ", countor)
+        DPrint("预备 ", countor)
         timeLabel.text = "预备 " + String( countor)
     }
     
@@ -106,7 +106,7 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate,Actio
     
     func actionManagerCurrentSpeechAction(speechAction: SpeechAction) {
         mySpeechAction = speechAction
-        print(speechAction)
+        DPrint(speechAction)
     }
     
     override func didReceiveMemoryWarning() {

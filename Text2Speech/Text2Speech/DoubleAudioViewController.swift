@@ -32,10 +32,10 @@ class DoubleAudioViewController: UIViewController {
         
         do {
             try NBAudioBot.PlayerWithURL(URL.init(fileURLWithPath: path), finish: { (sucess) in
-                print("播放背景音乐成功")
+                DPrint("播放背景音乐成功")
             })
         } catch  {
-            print(error.localizedDescription)
+            DPrint(error.localizedDescription)
         }
     }
     
@@ -44,7 +44,7 @@ class DoubleAudioViewController: UIViewController {
         do {
             try NBAudioBot.playDing(withURL: URL(fileURLWithPath: path), loops: 0)
         } catch  {
-            print(error.localizedDescription)
+            DPrint(error.localizedDescription)
         }
     }
     
@@ -54,7 +54,7 @@ class DoubleAudioViewController: UIViewController {
         do {
             try NBAudioBot.playDing(withURL: URL(fileURLWithPath: path), loops: 0)
         } catch  {
-            print(error.localizedDescription)
+            DPrint(error.localizedDescription)
         }
     }
     

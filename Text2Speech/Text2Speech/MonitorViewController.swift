@@ -28,7 +28,7 @@ class MonitorViewController: UIViewController {
             TTSpeechManager.speakWithUttrance(uttrance: uttrance, progress: { (progress) in
                 self.currentTextLabel.text = progress
             }, finish: { (isFinish) in
-                print("speak end")
+                DPrint("speak end")
             })
 
         })
