@@ -22,15 +22,15 @@ struct SpeechTextElement {
 }
 
 struct Action {
-    var type: String
-    var time: Int
-    var text: Array<Any>
+    var type: String//SpeechTextElement
+    var time: Int //动作持续时长
+    var text: Array<Any> //TTS文本
 }
 
 struct ActionAndKey {
     var action: Action
-    var actionJsonObject : SportAction?
-    var key: Int
+    var actionJsonObject : SportAction? //存储从allAction
+    var key: Int //用来排序 ItemsGenerator line 86
 }
 struct SpeechAction {
     var ak: ActionAndKey
