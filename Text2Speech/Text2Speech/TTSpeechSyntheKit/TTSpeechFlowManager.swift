@@ -12,20 +12,14 @@ import SwiftyJSON
 
 class TTSpeechFlowManager: NSObject {
     
-    var indicator :NSInteger = 0//用于从items里获取对象的游标
-    var musicPath :NSString?
-    var maxTime : NSInteger?//最大时间
-    var countor : NSInteger = 0//timer 计数器
-    var currentItem : FlowItem?//当前的item
-    var timer : PauseableTimer?
-    
+    fileprivate var indicator :NSInteger = 0//用于从items里获取对象的游标
+    fileprivate var maxTime : NSInteger?//最大时间
+    fileprivate var countor : NSInteger = 0//timer 计数器
+    fileprivate var timer : PauseableTimer?
     fileprivate var itmes : NSMutableArray = NSMutableArray()
-    override init() {
-        super.init()
-    }
 }
 
-//MARK: - Speech
+//MARK: - Load
 extension TTSpeechFlowManager{
     public func loadConfigFileAndInitItems(path : String){
         let dicT: NSDictionary! = NSDictionary(contentsOfFile: path)
@@ -46,7 +40,7 @@ extension TTSpeechFlowManager{
     }
     
     public func loadItemsWithDictionary(dic : Dictionary<AnyHashable, Any>,time: NSInteger){
-        
+        //重新初始化，确保新的items正常
         self.resetData()
         maxTime = time
         
@@ -63,28 +57,12 @@ extension TTSpeechFlowManager{
             self.itmes.add(flowItem!)
         }
     }
-    
-    private func loadFirstItem() -> FlowItem{
-        assert(itmes.count > 0, "初始化异常或者已经释放")
-        
-        let first = self.itmes.firstObject as! FlowItem
-        indicator += 1
-        return first
-    }
-    
-    private func loadNextItem() -> FlowItem?{
-        if indicator >= itmes.count{
-            return nil
-        }
-        let item =  itmes[indicator] as! FlowItem
-        indicator += 1
-        return item
-    }
-    
+}
+
+//MARK: - Controll
+extension TTSpeechFlowManager{
+
     public func begin(){
-        
-        TTSpeechManager.stop()
-        timer?.invalidate()
         assert(itmes.count > 0, "初始化数据错误,可能是操作过于频繁")
         timer = PauseableTimer(timer: Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true))
     }
@@ -106,43 +84,30 @@ extension TTSpeechFlowManager{
     }
     
     @objc func timerAction(){
-
-        if itmes.count == 0{
-            //已经退出,而且重置所有数据了
-            return
-        }
-        if indicator == 0{
-            speakWithUttrance(item: loadFirstItem())
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:TTSpeechManager.timerSecondUpdate), object: maxTime! - countor)
-            currentItem = loadNextItem()
-            return
-        }
+         //已经退出,而且重置所有数据了
+        if itmes.count == 0 { return }
         
-        let item = currentItem
-        if item == nil{
-            print("异常")
-            timer?.invalidate()
+        guard let item = loadNextItem() else {
+            DPrint("currectItem is nil !")
             return
         }
-        
-        countor += 1
         //这个通知必须在这里重新post
         NotificationCenter.default.post(name: NSNotification.Name(rawValue:TTSpeechManager.timerSecondUpdate), object: maxTime! - countor)
         
-        if NSInteger((item?.delay)!) == countor{
-            speakWithUttrance(item: item!)
-            currentItem = loadNextItem()
-          
-        }else if NSInteger((item?.delay)!) == indicator - 1{
-            timer?.invalidate()
+        if NSInteger(item.delay) == countor{
+            speakWithUttrance(item: item)
+            indicator += 1 //数组游标当播放一个完成后才加1
         }
+        //timer计数器每次都加1
+        countor += 1
     }
+    
     public func speakWithUttrance(item: FlowItem) {
         
         TTSpeechManager.speakWithUttrance(uttrance: item.utt,timeInteger: item.delay, progress: {(progress) in
-//            print(progress)
+            //            print(progress)
         }, finish: {[weak self]  finish  in
-            print("countor : \(String(describing: self?.countor))")
+            DPrint("countor : \(String(describing: self?.countor))")
             if let countor = self?.countor{
                 if countor == (self?.maxTime)! - 1{//到达最大时间时退出
                     self?.resetData()
@@ -151,29 +116,25 @@ extension TTSpeechFlowManager{
             }
         })
     }
+}
+
+//MARK: - private
+extension TTSpeechFlowManager{
+
+    fileprivate func loadNextItem() -> FlowItem?{
+        if indicator >= itmes.count{
+            return nil
+        }
+        let item =  itmes[indicator] as? FlowItem
+        return item
+    }
     
-    private func resetData(){
+    fileprivate func resetData(){
         self.itmes.removeAllObjects()
         self.countor = 0
         self.indicator = 0
         self.timer?.invalidate()
+        TTSpeechManager.stop()
     }
 }
 
-//MARK: - Bcakgroud Music
-extension TTSpeechFlowManager{
-    
-    func playerAudio() throws {
-        guard case let path as String = self.musicPath else {
-            return
-        }
-        
-        do {
-            try NBAudioBot.PlayerWithURL(URL(fileURLWithPath: path), finish: { (sucess) in
-                print("播放背景音乐成功")
-            })
-        } catch  {
-            print(error.localizedDescription)
-        }
-    }
-}
