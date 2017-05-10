@@ -9,9 +9,13 @@
 import UIKit
 
 protocol ActionsManagerDelegate : NSObjectProtocol {
+    
     func actionsManagerTimerReadyUpdate(countor: NSInteger)
     func actionsManagerTimerCountIntrodctionUpdate(countor: NSInteger)
     func actionsManagerTimerCountUpdate(countor: NSInteger)
+    
+    func actionsManagerActionBegin(speechAction: SpeechAction)
+    func actionsManagerActionEnd(speechAction: SpeechAction)
 }
 
 protocol ActionsManagerDataSource : NSObjectProtocol{
@@ -25,12 +29,12 @@ enum PlayStutas {
 }
 
 class ActionsManager: NSObject {
-
+    
     fileprivate var speechStaus: String
     
     fileprivate var playStutas: PlayStutas
     
-    public var actions: Array<SpeechAction>
+    public var actions: [SpeechAction]
     
     fileprivate var currentSpeechIndex:Int = 0
     
@@ -40,7 +44,7 @@ class ActionsManager: NSObject {
     
     weak var datasource : ActionsManagerDataSource?
     
-    public init?(actions: Array<SpeechAction>) {
+    public init?(actions: [SpeechAction]) {
         self.actions = actions
         self.speechStaus = SpeechTextElement.ready
         self.playStutas = PlayStutas.ready
@@ -62,14 +66,14 @@ class ActionsManager: NSObject {
     }
     
     public func next(){
-
+        
         switch speechStaus {
         case SpeechTextElement.rest:
             play()
         case SpeechTextElement.ready:
             play()
         default:
-            DPrint("出错了")
+            print("出错了")
         }
     }
     
@@ -78,16 +82,16 @@ class ActionsManager: NSObject {
         currentSpeechIndex += 1
         playCommon()
     }
-
+    
     public func finishOne(){
-
+        delegate?.actionsManagerActionEnd(speechAction: actions[currentSpeechIndex])
         switch speechStaus {
         case SpeechTextElement.actionCount:
             play()
         case SpeechTextElement.actionTimer:
             play()
         default:
-            DPrint("出错了")
+            print("出错了")
         }
     }
     
@@ -109,7 +113,7 @@ class ActionsManager: NSObject {
     }
     
     @objc func notificationExit(){
-
+        
         switch speechStaus {
         case SpeechTextElement.ready:
             play()
@@ -118,7 +122,7 @@ class ActionsManager: NSObject {
         case SpeechTextElement.actionTimer:
             play()
         default:
-            DPrint("do nothing")
+            print("do nothing")
         }
     }
     
@@ -133,7 +137,10 @@ class ActionsManager: NSObject {
             delegate?.actionsManagerTimerCountUpdate(countor: second)
             playDaDaAudio()
         default:
-            DPrint("do nothing")
+            print("do nothing")
+        }
+        if second == 1{
+            delegate?.actionsManagerActionEnd(speechAction: actions[currentSpeechIndex])
         }
     }
 }
@@ -151,7 +158,7 @@ extension ActionsManager{
         speechStaus = sa.ak.action.type
         self.flowManager.loadItemsWithDictionary(dic: sa.speech, time: sa.ak.action.time)
         flowManager.begin()
-
+        delegate?.actionsManagerActionBegin(speechAction: sa)
         datasource?.actionManagerCurrentSpeechAction(speechAction: sa)
     }
 }
@@ -164,10 +171,10 @@ extension ActionsManager{
         }
         do {
             try NBAudioBot.PlayerWithURL(URL(fileURLWithPath: path), finish: { (sucess) in
-                DPrint("播放背景音乐成功")
+                print("播放背景音乐成功")
             })
         } catch  {
-            DPrint(error.localizedDescription)
+            print(error.localizedDescription)
         }
     }
     
@@ -178,20 +185,19 @@ extension ActionsManager{
         do {
             try NBAudioBot.playDing(withURL: URL(fileURLWithPath: path), loops: 0)
         } catch  {
-            DPrint(error.localizedDescription)
+            print(error.localizedDescription)
         }
     }
     
     //计时运动的时候卡妙声音
     fileprivate func playDaDaAudio(){
-        print("playDaDaAudio sound/td_di")
         guard let path = soundPath(withSource: "sound/Etimer", type: "mp3") else {
             return
         }
         do {
             try NBAudioBot.playDing(withURL: URL(fileURLWithPath: path), loops: 0)
         } catch  {
-            DPrint(error.localizedDescription)
+            print(error.localizedDescription)
         }
     }
     

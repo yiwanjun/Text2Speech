@@ -39,7 +39,7 @@ class ItemsGenerator: NSObject {
                 let ready : Action = Action(type: SpeechTextElement.ready, time: 10, text: [self.prepare,startWithName,"3","2","1"])
                 actions.append(ActionAndKey(action: ready,actionJsonObject: actionJson, key: 0))
             }
-            //遍历从今天计划的动作，从json文件中获取到的
+            //遍历今天计划的动作，从json文件中获取到的
             for i in 0..<self.plans.count{
                 let plan = self.plans[i]
                 let actionId = plan["actionId"]
@@ -79,7 +79,7 @@ class ItemsGenerator: NSObject {
                 }
             }
             //完成所有动作
-            let action = Action(type:SpeechTextElement.end,time:2,text:[self.congratulations])
+            let action = Action(type:SpeechTextElement.end,time:1,text:[self.congratulations])
             actions.append(ActionAndKey(action: action,actionJsonObject: nil, key: 9999))
             
             //按照设置key升序排列，都是数字类型的字符串

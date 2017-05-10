@@ -22,11 +22,11 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate,Actio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let actionsEx = [["actionId":1,"time":6],["actionId":3,"time":10]]
+        let actionsEx = [["actionId":3,"time":10]]
         
         ItemsGenerator(plan: actionsEx)?.gennerate(finish: {[weak self] (speechs)  in
             self?.actionsManager = ActionsManager(actions: speechs)
-            self?.actionsManager?.delegate = self
+            self?.actionsManager?.delegate = self!
             self?.actionsManager?.datasource = self
         })
     }
@@ -102,6 +102,13 @@ class UinitBySecondViewController: UIViewController,ActionsManagerDelegate,Actio
     
     func actionsManagerTimerCountUpdate(countor: NSInteger) {
         timeLabel.text = "计时动作 " + String(countor)
+    }
+    
+    func actionsManagerActionBegin(speechAction: SpeechAction){
+        print(speechAction.ak.action.type + " speechAction begin")
+    }
+    func actionsManagerActionEnd(speechAction: SpeechAction){
+        print(speechAction.ak.action.type + " speechAction end")
     }
     
     func actionManagerCurrentSpeechAction(speechAction: SpeechAction) {

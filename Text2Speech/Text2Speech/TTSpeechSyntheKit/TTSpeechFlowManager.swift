@@ -109,7 +109,7 @@ extension TTSpeechFlowManager{
         }, finish: {[weak self]  finish  in
             DPrint("countor : \(String(describing: self?.countor))")
             if let countor = self?.countor{
-                if countor == (self?.maxTime)! - 1{//到达最大时间时退出
+                if countor >= (self?.maxTime)! {//到达最大时间时退出
                     self?.resetData()
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: TTSpeechManager.speechStatus.exit), object: nil)
                 }
